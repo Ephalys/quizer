@@ -10,6 +10,7 @@ export const CustomInput = styled.input`
   font-size: 16px;
   border: 2px solid white;
   transition: all .3s;
+  appearance: none;
   
   &:focus {
     outline: none;
