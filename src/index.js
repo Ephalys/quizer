@@ -17,18 +17,28 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
   color: white;
   font-size: 16px;
   position: fixed;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   height: 100vh;
   }
   
   #root {
     display: flex;
     height: 100%;
+  }
+  
+  #background-wrapper {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+    background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   
   h1 {
