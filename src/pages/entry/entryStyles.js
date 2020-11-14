@@ -7,6 +7,7 @@ export const EntryWrapper = styled.div`
     flex-direction: column;
     height: 100vh;
     text-align: center;
+    padding: 24px;
     
     @media (min-width: 768px) {
         padding: 10% 0;
@@ -18,6 +19,6 @@ export const EntryTitle = styled.h1`
 `
 
 export const EntrySubtitle = styled.p`
-  font-size: 24px;
+  font-size: 20px;
   margin: 0 0 40px;
 `
