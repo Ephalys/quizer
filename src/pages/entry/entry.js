@@ -1,5 +1,5 @@
 import React from 'react';
-import {EntryWrapper, EntryTitle, EntrySubtitle} from './entryStyles'
+import {EntrySubtitle, EntryTitle, EntryWrapper} from './entryStyles'
 import Input from "../../components/input/input";
 
 const Entry = () => {
@@ -11,7 +11,7 @@ const Entry = () => {
             <EntrySubtitle>
                 Please write down your username to enjoy our fantastic game !
             </EntrySubtitle>
-            <Input placeholder="John Doe"/>
+            <Input placeholder="John Doe" arrow={true}/>
         </EntryWrapper>
     );
 }

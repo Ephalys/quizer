@@ -1,9 +1,15 @@
 import React from 'react';
-import {CustomInput} from "./inputStyles";
+import {CustomInput, InputContainer, Arrow} from "./inputStyles";
+import colors from '../../assets/styles/colors'
 
 const Input = (props) => {
     return (
-        <CustomInput type="text" placeholder={props.placeholder}/>
+        <InputContainer>
+            <CustomInput type="text" placeholder={props.placeholder}/>
+            {
+                props.arrow && <Arrow fill={colors.primary}/>
+            }
+        </InputContainer>
     );
 };
 

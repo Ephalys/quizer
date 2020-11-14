@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {ReactComponent as ArrowSvg} from "../../assets/icons/arrow.svg";
 
 export const CustomInput = styled.input`
   border-radius: 25px;
@@ -17,5 +18,24 @@ export const CustomInput = styled.input`
     color: white;
     box-shadow: none;
     transition: all .3s;
+    
+    ::placeholder {
+      color: #ccc;
+    }
+    
+    + svg {
+      fill: white;
+    }
   }
+`
+
+export const InputContainer = styled.div`
+  position: relative
+`
+
+export const Arrow = styled(ArrowSvg)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 24px;
 `
