@@ -34,8 +34,15 @@ export const InputContainer = styled.div`
 `
 
 export const Arrow = styled(ArrowSvg)`
+  cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 24px;
+  transition: right .2s ease-out;
+  
+  &:hover {
+    right: 16px;
+    transition: right .2s ease-out;
+  }
 `
