@@ -19,9 +19,20 @@ const GlobalStyle = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
   color: white;
+  font-size: 16px;
   }
   
-}
+  h1 {
+  font-size: 40px;
+  }
+  
+  h2 {
+  font-size: 32px;
+  }
+  
+  h3 {
+  font-size: 24px;
+  }
 `
 ReactDOM.render(
     <React.StrictMode>
