@@ -5,7 +5,6 @@ export const EntryWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
     text-align: center;
     padding: 24px;
     

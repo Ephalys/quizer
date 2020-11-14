@@ -20,6 +20,15 @@ const GlobalStyle = createGlobalStyle`
   background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
   color: white;
   font-size: 16px;
+  position: fixed;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  }
+  
+  #root {
+    display: flex;
+    height: 100%;
   }
   
   h1 {
