@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import Router from './config/routes'
 import { createGlobalStyle } from 'styled-components'
+import colors from './assets/styles/colors'
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -16,16 +17,18 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
+  color: white;
   }
   
 }
 `
 ReactDOM.render(
-  <React.StrictMode>
-      <GlobalStyle />
-      <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <GlobalStyle />
+        <Router/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
