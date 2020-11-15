@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../assets/styles/breakpoints";
 
 export const EntryWrapper = styled.div`
     display: flex;
@@ -8,6 +9,10 @@ export const EntryWrapper = styled.div`
     width: 100%;
     text-align: center;
     padding: 24px;
+    
+    @media (max-width: ${breakpoints.$screenMaxXs}) {
+      padding: 16px;
+    }
 `
 
 export const EntryTitle = styled.h1`
