@@ -3,7 +3,7 @@ import {ReactComponent as ArrowSvg} from "../../assets/icons/arrow.svg";
 
 export const CustomInput = styled.input`
   border-radius: 25px;
-  padding: 16px 24px;
+    padding: 12px 64px 12px 24px;
   background-color: white;
   box-shadow: 0 0 16px -7px rgba(0,0,0,0.75);
   min-width: 250px;
