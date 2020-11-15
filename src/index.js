@@ -21,11 +21,14 @@ const GlobalStyle = createGlobalStyle`
   font-size: 16px;
   position: fixed;
   height: 100vh;
+  width: 100%;
+  display: flex;
   }
   
   #root {
     display: flex;
     height: 100%;
+    width: 100%;
   }
   
   #background-wrapper {

@@ -5,12 +5,9 @@ export const EntryWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
     text-align: center;
     padding: 24px;
-    
-    @media (min-width: 768px) {
-        padding: 10% 0;
-    }
 `
 
 export const EntryTitle = styled.h1`
