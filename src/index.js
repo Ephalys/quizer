@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
 }
-  body {
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -23,38 +23,42 @@ const GlobalStyle = createGlobalStyle`
   height: 100vh;
   width: 100%;
   display: flex;
-  }
   
-  #root {
+  &:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+  
+#root {
     display: flex;
     height: 100%;
     width: 100%;
-  }
+}
   
-  #background-wrapper {
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-size: 100%;
-    background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-  
-  h1 {
+h1 {
   font-size: 40px;
-  }
+}
   
-  h2 {
+h2 {
   font-size: 32px;
-  }
+}
   
-  h3 {
+h3 {
   font-size: 24px;
-  }
+}
 `
 ReactDOM.render(
     <React.StrictMode>
