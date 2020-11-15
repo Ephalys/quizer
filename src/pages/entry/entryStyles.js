@@ -8,10 +8,10 @@ export const EntryWrapper = styled.div`
     flex-direction: column;
     width: 100%;
     text-align: center;
-    padding: 24px;
+    padding: 16px;
     
-    @media (max-width: ${breakpoints.$screenMaxXs}) {
-      padding: 16px;
+    @media (min-width: ${breakpoints.$screenMinXs}) {
+      padding: 24px;
     }
 `
 

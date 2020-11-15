@@ -1,6 +1,5 @@
 import React from 'react';
 import {CustomInput, InputContainer, Arrow} from "./inputStyles";
-import colors from '../../assets/styles/colors'
 
 const Input = (props) => {
     return (
