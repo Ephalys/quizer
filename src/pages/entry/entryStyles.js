@@ -19,6 +19,9 @@ export const EntryTitle = styled.h1`
   margin: 0 0 24px;
 `
 
+export const BlackSpan = styled.span`
+  color: black;
+`
 export const EntrySubtitle = styled.p`
   font-size: 20px;
   margin: 0 0 40px;

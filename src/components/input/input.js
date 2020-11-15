@@ -7,7 +7,7 @@ const Input = (props) => {
         <InputContainer>
             <CustomInput type="text" placeholder={props.placeholder}/>
             {
-                props.arrow && <Arrow fill={colors.primary} width={28} height={28}/>
+                props.arrow && <Arrow fill="black" width={28} height={28}/>
             }
         </InputContainer>
     );
