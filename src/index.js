@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import Router from './config/routes'
 import { createGlobalStyle } from 'styled-components'
 import colors from './assets/styles/colors'
+import { store } from './config/store';
+import { Provider } from 'react-redux';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -62,11 +64,13 @@ h3 {
 }
 `
 ReactDOM.render(
-    <React.StrictMode>
-        <GlobalStyle />
-        <Router/>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <Provider store={store}>
+      <GlobalStyle />
+      <Router />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
