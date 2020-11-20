@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
-import Router from './config/routes'
-import { createGlobalStyle } from 'styled-components'
-import colors from './assets/styles/colors'
-import { store } from './config/store';
-import { Provider } from 'react-redux';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
+import Router from "./config/routes";
+import { createGlobalStyle } from "styled-components";
+import colors from "./assets/styles/colors";
+import { store } from "./config/store";
+import { Provider } from "react-redux";
+import "./config/i18n";
 const GlobalStyle = createGlobalStyle`
 
 * {
@@ -62,7 +62,7 @@ h2 {
 h3 {
   font-size: 24px;
 }
-`
+`;
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -70,7 +70,7 @@ ReactDOM.render(
       <Router />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-    return (
-        <div>
-            Choose the category that you want to master 💪🏻
-        </div>
-    );
+  const { t, i18n } = useTranslation();
+  return (
+    <div>
+      <p>{t("ChooseCategory")} 💪🏻</p>
+    </div>
+  );
 };
 
 export default Home;
