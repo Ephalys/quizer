@@ -4,12 +4,13 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./config/routes";
 import { createGlobalStyle } from "styled-components";
-import colors from "./assets/styles/colors";
 import { store } from "./config/store";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
+import { ThemeProvider } from 'styled-components';
 import "./config/i18n";
-const GlobalStyle = createGlobalStyle`
+import ThemeSelector from './components/themeSelector/themeSelector';
 
+const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -36,7 +37,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLighten});
+    background-image: linear-gradient(135deg, ${props => props.theme.colors.primary}, ${props => props.theme.colors.primaryLighten});
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -63,11 +64,22 @@ h3 {
   font-size: 24px;
 }
 `;
+
+const App = () => {
+  const theme = useSelector((state) => state.theme.themeValue);
+  return (
+    <ThemeProvider theme={theme}>
+      <ThemeSelector />
+      <GlobalStyle />
+      <Router />
+    </ThemeProvider>
+  )
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalStyle />
-      <Router />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
