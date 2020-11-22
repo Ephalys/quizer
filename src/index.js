@@ -37,7 +37,9 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: linear-gradient(135deg, ${props => props.theme.colors.primary}, ${props => props.theme.colors.secondary});
+    transition: background-color .5s ease;
+    background-color: ${props => props.theme.colors.secondary};
+    background-image: linear-gradient(135deg, ${props => props.theme.colors.primary}, rgba(0,0,0,0));
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
