@@ -1,5 +1,5 @@
-import { APPLY_THEME } from '../actions/theme';
-import { defaultTheme } from '../assets/styles/themes';
+import { APPLY_THEME } from 'actions/theme';
+import { defaultTheme } from 'assets/styles/themes';
 
 const initialState = {
     themeValue: defaultTheme
