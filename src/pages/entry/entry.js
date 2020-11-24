@@ -1,14 +1,15 @@
 import React from 'react';
 import { EntrySubtitle, EntryTitle, EntryWrapper, BlackSpan } from './entryStyles'
-import Input from "../../components/input/input";
+import Input from "components/input/input";
 import { useDispatch, useSelector } from 'react-redux';
-import { editUsername } from '../../actions/username';
+import { editUsername } from 'actions/username';
 
 const Entry = () => {
     const username = useSelector(state => state.username)
     const dispatch = useDispatch();
-    const handleClick = () => {
-        console.log(username);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.setItem("username", username);
     }
     return (
         <EntryWrapper>
@@ -18,7 +19,9 @@ const Entry = () => {
             <EntrySubtitle>
                 Please write down your username to enjoy our fantastic game !
             </EntrySubtitle>
-            <Input placeholder="John Doe" value={username.tmpUsername} arrow={true} onChange={(e) => dispatch(editUsername(e))} onClick={() => handleClick} />
+            <form onSubmit={handleSubmit}>
+                <Input placeholder="John Doe" value={username.tmpUsername} arrow={true} onChange={(e) => dispatch(editUsername(e))} />
+            </form>
         </EntryWrapper>
     );
 }
