@@ -23,7 +23,7 @@ export const CustomInput = styled.input`
       color: #ccc;
     }
     
-    + svg {
+    + button svg {
       fill: white;
     }
   }
