@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-import Router from "./config/routes";
+import Routes from "./config/routes";
 import { createGlobalStyle } from "styled-components";
 import { store } from "./config/store";
 import { Provider, useSelector } from "react-redux";
 import { ThemeProvider } from 'styled-components';
 import "./config/i18n";
 import ThemeSelector from './components/themeSelector/themeSelector';
+import { Router } from "react-router-dom";
+import history from "config/history";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -73,7 +75,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <ThemeSelector />
       <GlobalStyle />
-      <Router />
+      <Router history={history}>
+        <Routes />
+      </Router>
     </ThemeProvider>
   )
 }

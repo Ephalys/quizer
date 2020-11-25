@@ -1,5 +1,6 @@
 {
-"translation": {
-    "ChooseCategory" : "Choose the category that you want to master"
-}
+    "translation": {
+        "ChooseCategory": "Choose the category that you want to master",
+        "searchCategory": "In case you don’t like these topics, use the search bar below"
+    }
 }

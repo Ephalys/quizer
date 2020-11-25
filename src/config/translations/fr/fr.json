@@ -1,5 +1,6 @@
 {
-"translation": {
-    "ChooseCategory" : "Choisi la catégorie que tu veut maitre"
-}
+    "translation": {
+        "ChooseCategory": "Choisis la catégorie que tu souhaites maîtriser",
+        "searchCategory": "Si tu n'aimes pas ces sujets, utilise la barre de recherche ci-dessous"
+    }
 }

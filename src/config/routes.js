@@ -1,28 +1,20 @@
 import React from "react";
-import {
-    BrowserRouter,
-    Switch,
-    Route,
-} from "react-router-dom";
+import { Switch, Route, withRouter, } from "react-router-dom";
 import Nomatch from "../pages/nomatch/nomatch"
 import Home from "../pages/home/home";
 import Entry from "../pages/entry/entry";
+import ProtectedRoute from "./ProtectedRoute";
 
-const Router = () => {
-    const loggedIn = localStorage.getItem('token');
-
+const Routes = () => {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/">
-                    {loggedIn ? <Home /> : <Entry />}
-                </Route>
-                <Route path="*">
-                    <Nomatch />
-                </Route>
-            </Switch>
-        </BrowserRouter>
+        <Switch>
+            <ProtectedRoute exact path="/login" component={Entry} mustBeLogged={false} />
+            <ProtectedRoute exact path="/" component={Home} mustBeLogged={true} />
+            <Route path="*">
+                <Nomatch />
+            </Route>
+        </Switch>
     );
 }
 
-export default Router;
+export default withRouter(Routes);
