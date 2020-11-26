@@ -7,8 +7,6 @@ const defaultOptions = {
   loop: true,
   autoplay: true,
   animationData: Loading,
-  //   height: 5,
-  //   width: 5,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },
