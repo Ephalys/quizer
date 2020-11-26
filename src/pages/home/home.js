@@ -8,7 +8,6 @@ import { Titleh1, Titleh2, CategoryWrapper, InputWrapper } from "./homeStyles";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
-  console.log(i18n.language);
 
   const categories = [
     { name: "General Knowledge", id: 9 },
