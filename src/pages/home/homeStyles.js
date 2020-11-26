@@ -12,23 +12,25 @@ export const Container = styled.div`
 export const Titleh1 = styled.h1`
   font-size: 20px;
   text-align: center;
-  margin-bottom: 40px;
+  margin: 0 0 40px;
 `
 
 export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: column; 
-  margin: 0 16px;
+  margin: 0 16px 56px;
+  min-width: 100%;
   @media (min-width: ${breakpoints.$screenMinXs}) {
     flex-direction: row;
     flex-wrap: wrap;
+    min-width: 80%;
   }
 `
 
 export const Titleh2 = styled.h2`
   font-size: 18px;
   text-align: center;
-  padding: 24px 16px;
+  margin: 0 0 32px;
 `
 export const Form = styled.form`
   display: flex;
