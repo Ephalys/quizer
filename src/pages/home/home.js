@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Category from "../../components/category/category";
 import Input from "../../components/input/input";
@@ -11,8 +11,17 @@ import {
   CategoryWrapper,
   Form,
 } from "./homeStyles";
+import Loader from "components/loader/loader";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 1500);
+  // }, []);
+
   const { t } = useTranslation();
 
   const categories = [
@@ -29,22 +38,28 @@ const Home = () => {
   console.log(category);
   return (
     <Container>
-      <Titleh1>{t("ChooseCategory")} 💪🏻</Titleh1>
-      <CategoryWrapper>
-        {categories.map((c) => (
-          <Category category={c} key={c.id} />
-        ))}
-      </CategoryWrapper>
-      <Titleh2>{t("searchCategory")}</Titleh2>
-      <Form onSubmit={(category) => handleSubmit(category)}>
-        <Input
-          placeholder="Art, Science, History..."
-          name="search"
-          value={category.search}
-          arrow={true}
-          onChange={(e) => dispatch(searchCategory(e))}
-        />
-      </Form>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Titleh1>{t("ChooseCategory")} 💪🏻</Titleh1>
+          <CategoryWrapper>
+            {categories.map((c) => (
+              <Category category={c} key={c.id} />
+            ))}
+          </CategoryWrapper>
+          <Titleh2>{t("searchCategory")}</Titleh2>
+          <Form onSubmit={(category) => handleSubmit(category)}>
+            <Input
+              placeholder="Art, Science, History..."
+              name="search"
+              value={category.search}
+              arrow={true}
+              onChange={(e) => dispatch(searchCategory(e))}
+            />
+          </Form>
+        </>
+      )}
     </Container>
   );
 };
