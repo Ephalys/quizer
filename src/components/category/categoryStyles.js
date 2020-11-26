@@ -13,7 +13,22 @@ export const CategoryStyled = styled.div`
   margin-bottom: 8px;
   border-radius: 12px;
   min-width: 184px;
+  transition: all .3s;
+  @media (min-width: ${breakpoints.$screenMinXs}) {
+    width: 48%;
+  }
+  @media (min-width: ${breakpoints.$screenMinMd}) {
+    width: 23%;
+  }
   &:last-child{
     margin-bottom: 0;
+  }
+  &:hover {
+    outline: none;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    box-shadow: none;
+    cursor: pointer;
   }
 `
