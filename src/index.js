@@ -6,11 +6,12 @@ import Routes from "./config/routes";
 import { createGlobalStyle } from "styled-components";
 import { store } from "./config/store";
 import { Provider, useSelector } from "react-redux";
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from "styled-components";
 import "./config/i18n";
-import ThemeSelector from './components/themeSelector/themeSelector';
+import ThemeSelector from "./components/themeSelector/themeSelector";
 import { Router } from "react-router-dom";
 import history from "config/history";
+import Header from "./components/header/header";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -40,8 +41,9 @@ body {
     height: 100%;
     z-index: -1;
     transition: background-color .5s ease;
-    background-color: ${props => props.theme.colors.secondary};
-    background-image: linear-gradient(135deg, ${props => props.theme.colors.primary}, rgba(0,0,0,0));
+    background-color: ${(props) => props.theme.colors.secondary};
+    background-image: linear-gradient(135deg, ${(props) =>
+      props.theme.colors.primary}, rgba(0,0,0,0));
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -73,14 +75,14 @@ const App = () => {
   const theme = useSelector((state) => state.theme.themeValue);
   return (
     <ThemeProvider theme={theme}>
-      <ThemeSelector />
+      <Header />
       <GlobalStyle />
       <Router history={history}>
         <Routes />
       </Router>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
