@@ -2,23 +2,26 @@ import styled from "styled-components";
 import breakpoints from "../../assets/styles/breakpoints";
 
 export const Container = styled.div`
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 `
 
 export const Titleh1 = styled.h1`
   font-size: 20px;
   text-align: center;
-  padding: 24px 16px;
+  margin-bottom: 40px;
 `
 
 export const CategoryWrapper = styled.div`
-  padding: 0px 16px;
   display: flex;
   flex-direction: column; 
+  margin: 0 16px;
   @media (min-width: ${breakpoints.$screenMinXs}) {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
   }
 `
 
