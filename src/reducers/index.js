@@ -2,9 +2,11 @@ import { combineReducers } from 'redux'
 import username from './username'
 import category from './category'
 import theme from './theme'
+import loading from './loading'
 
 export default combineReducers({
   username,
   category,
-  theme
+  theme,
+  loading
 })

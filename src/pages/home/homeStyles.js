@@ -16,7 +16,7 @@ export const Titleh1 = styled(motion.h1)`
   margin: 0 0 40px;
 `
 
-export const CategoryWrapper = styled.div`
+export const CategoryWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column; 
   margin: 0 16px 56px;
