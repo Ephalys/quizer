@@ -5,7 +5,7 @@ import {ReactComponent as Arrow} from "assets/icons/arrow.svg";
 const Input = (props) => {
     return (
         <InputContainer>
-            <CustomInput value={props.value} type="text" onChange={props.onChange} placeholder={props.placeholder} />
+            <CustomInput value={props.value} type="text" onChange={props.onChange} onFocus={props.onFocus} onBlur={props.onBlur} placeholder={props.placeholder} />
             {
                 props.arrow &&
                 <ArrowButton type="submit">

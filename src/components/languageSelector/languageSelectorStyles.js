@@ -10,5 +10,5 @@ export const Language = styled(LanguageSvg)`
 export const StyledLanguageSelector = styled.div`
   position: fixed;
   top: 24px;
-  right: 55px;
+  right: 56px;
 `;

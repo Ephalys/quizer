@@ -14,6 +14,7 @@ export const CategoryStyled = styled.div`
   border-radius: 12px;
   min-width: 184px;
   transition: all .3s;
+  text-align: center;
   @media (min-width: ${breakpoints.$screenMinXs}) {
     width: 48%;
   }
