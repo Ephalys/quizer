@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { QuizItemTitle, StyledQuizItem, CategoryStyledAnswerGood, CategoryStyledAnswerBad, CategoryStyledAnswer } from './quizItemStyles'
-import { CategoryStyled } from 'category/categoryStyles'
+import { CategoryStyled } from 'components/category/categoryStyles'
 import QuizItemType from "components/quizItemType/quizItemType"
 import shuffleArray from "utils/shuffleArray"
 

@@ -8,7 +8,6 @@ import { store } from "./config/store";
 import { Provider, useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import "./config/i18n";
-import ThemeSelector from "./components/themeSelector/themeSelector";
 import { Router } from "react-router-dom";
 import history from "config/history";
 import Header from "./components/header/header";
