@@ -3,30 +3,35 @@ import styled from "styled-components";
 import breakpoints from "../../assets/styles/breakpoints";
 
 export const Container = styled.div`
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 `
 
 export const Titleh1 = styled(motion.h1)`
   font-size: 20px;
   text-align: center;
-  padding: 24px 16px;
+  margin: 0 0 40px;
 `
 
-export const CategoryWrapper = styled(motion.div)`
-  padding: 0px 16px;
+export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: column; 
+  margin: 0 16px 56px;
+  min-width: 100%;
   @media (min-width: ${breakpoints.$screenMinXs}) {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    min-width: 80%;
   }
 `
 
 export const Titleh2 = styled(motion.h2)`
   font-size: 18px;
   text-align: center;
-  padding: 24px 16px;
+  margin: 0 0 32px;
 `
 export const Form = styled(motion.form)`
   display: flex;

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function getQuestionsByParams(count = 20, categoryId = null, difficulty = null, type = null) {
+export async function getQuestionsByParams({ count = 20, categoryId = null, difficulty = null, type = null }) {
   let isError = false;
   let isCategory = false;
   let isDifficulty = false;
@@ -17,7 +17,8 @@ export async function getQuestionsByParams(count = 20, categoryId = null, diffic
   }
 
   if (categoryId !== null) {
-    if (typeof categoryId !== "number") {
+    categoryId = Number(categoryId)
+    if (isNaN(categoryId)) {
       console.warn("Second parameter have to be a number.");
       isError = true;
     }

@@ -5,24 +5,21 @@ export const CategoryStyled = styled.div`
   color: black;
   background-color: white;
   font-weight: bold;
-  width: 100%;
-  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
   border-radius: 12px;
-  min-width: 184px;
   transition: all .3s;
+  margin: 0 12px 16px;
+  border: 2px solid transparent;
+  flex-basis: 100%;
+  padding: 8px 16px;
   text-align: center;
   @media (min-width: ${breakpoints.$screenMinXs}) {
-    width: 48%;
+    flex-basis: calc(50% - 32px);
   }
   @media (min-width: ${breakpoints.$screenMinMd}) {
-    width: 23%;
-  }
-  &:last-child{
-    margin-bottom: 0;
+    flex-basis: calc(25% - 32px);
   }
   &:hover {
     outline: none;
