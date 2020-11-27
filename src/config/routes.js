@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, withRouter, } from "react-router-dom";
-import Nomatch from "../pages/nomatch/nomatch"
-import Home from "../pages/home/home";
-import Entry from "../pages/entry/entry";
-import Quiz from "../pages/quiz/quiz";
+import Nomatch from "pages/nomatch/nomatch"
+import Home from "pages/home/home";
+import Entry from "pages/entry/entry";
+import Quiz from "pages/quiz/quiz";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Routes = () => {

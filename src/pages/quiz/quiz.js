@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { StyledQuiz } from "./quizStyles"
-import QuizItem from '../../components/quizItem/quizItem'
-import QuizRecap from "../../components/quizRecap/quizRecap"
-import { getQuestionsByParams } from '../../config/api'
+import QuizItem from 'components/quizItem/quizItem'
+import QuizRecap from "components/quizRecap/quizRecap"
+import { getQuestionsByParams } from 'config/api'
 import { useParams } from "react-router-dom";
 
 export const Quiz = () => {

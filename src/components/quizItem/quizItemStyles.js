@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { CategoryStyled } from '../category/categoryStyles'
+import { CategoryStyled } from 'components/category/categoryStyles'
 
 export const StyledQuizItem = styled.div``
 

@@ -1,4 +1,4 @@
-import { EDIT_USERNAME } from '../actions/username'
+import { EDIT_USERNAME } from 'actions/username'
 const initialState = {
   username: localStorage.getItem('username') !== null ? localStorage.getItem('username') : ""
 }

@@ -1,4 +1,4 @@
-import { EDIT_SEARCH, SELECT_CATEGORY, TOGGLE_CATEGORY, GET_CATEGORIES } from '../actions/category'
+import { EDIT_SEARCH, SELECT_CATEGORY, TOGGLE_CATEGORY, GET_CATEGORIES } from 'actions/category'
 const initialState = {
   search: "",
   category: null,

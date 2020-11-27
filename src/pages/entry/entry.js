@@ -3,7 +3,7 @@ import { EntrySubtitle, EntryTitle, EntryWrapper, BlackSpan } from './entryStyle
 import Input from "components/input/input";
 import { useDispatch, useSelector } from 'react-redux';
 import { editUsername } from 'actions/username';
-import history from '../../config/history';
+import history from 'config/history';
 
 const Entry = () => {
     const username = useSelector(state => state.username)
