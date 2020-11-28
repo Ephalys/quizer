@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { StyledQuiz } from "./quizStyles"
 import QuizItem from 'components/quizItem/quizItem'
 import QuizRecap from "components/quizRecap/quizRecap"
 import { getQuestionsByParams } from 'config/api'
 import { useParams } from "react-router-dom";
+import Loader from 'components/loader/loader';
 
 export const Quiz = () => {
     const { categoryId } = useParams()
+    const category = useSelector(state => state.category)
     const [quiz, setQuiz] = useState({})
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
     const [currentQuestion, setCurrentQuestion] = useState(undefined)
@@ -37,14 +40,16 @@ export const Quiz = () => {
 
     return (
         <StyledQuiz>
-            {!currentQuestion && !isQuizFinished && <h1>loading</h1>}
-            {currentQuestion && !isQuizFinished && <QuizItem
-                questionIndex={currentQuestionIndex}
-                key={currentQuestionIndex}
-                data={currentQuestion}
-                setCurrentQuestionIndex={setCurrentQuestionIndex}
-                addNewAnswer={addNewAnswer}
-            />}
+            {!currentQuestion && !isQuizFinished && <Loader />}
+            {currentQuestion && !isQuizFinished && <>
+                <QuizItem
+                    questionIndex={currentQuestionIndex}
+                    key={currentQuestionIndex}
+                    data={currentQuestion}
+                    setCurrentQuestionIndex={setCurrentQuestionIndex}
+                    addNewAnswer={addNewAnswer}
+                />
+            </>}
             {isQuizFinished && <QuizRecap data={allUserAnswers} />
             }
         </StyledQuiz>
