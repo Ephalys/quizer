@@ -9,7 +9,7 @@ import Loader from 'components/loader/loader'
 const QuizItem = props => {
     const handleTimeout = useRef(null)
     const { category, type, difficulty, question, correct_answer, incorrect_answers } = props.data
-    const { setCurrentQuestionIndex, questionIndex, addNewAnswer } = props
+    const { setCurrentQuestionIndex, questionIndex, handleSetResult } = props
     const [allAnswers, setAllAnswers] = useState(undefined)
 
     useEffect(() => {
@@ -24,12 +24,11 @@ const QuizItem = props => {
 
     const handleClick = index => {
         if (!userAnswerIndex) {
-            setGoodAnswerIndex(allAnswers.indexOf(correct_answer))
+            const indexOfCorrectAnswer = allAnswers.indexOf(correct_answer)
+            const isUserAnswerCorrect = allAnswers.indexOf(correct_answer) === index
+            setGoodAnswerIndex(indexOfCorrectAnswer)
             setUserAnswerIndex(index)
-            addNewAnswer({
-                question: props.data,
-                userAnswer: allAnswers[index]
-            })
+            handleSetResult(isUserAnswerCorrect)
             handleTimeout.current = setTimeout(() => {
                 setCurrentQuestionIndex(questionIndex + 1)
                 setUserAnswerIndex(undefined)

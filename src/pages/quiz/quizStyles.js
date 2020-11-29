@@ -18,3 +18,7 @@ export const QuizTitle = styled(motion.h3)`
 export const QuizCategory = styled(motion.span)`
   color:#000;
 `
+
+export const QuizRedirect = styled(motion.span)`
+  cursor:pointer;
+`
