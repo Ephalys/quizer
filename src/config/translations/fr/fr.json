@@ -1,5 +1,7 @@
 {
     "translation": {
+        "Welcome": "Bienvenue sur",
+        "EnterUsername": "Merci de noter votre nom d'utilisateur pour profiter de notre jeu fantastique !",
         "ChooseCategory": "Choisis la catégorie que tu souhaites maîtriser",
         "searchCategory": "Si tu n'aimes pas ces sujets, utilise la barre de recherche ci-dessous"
     }

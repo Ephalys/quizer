@@ -8,10 +8,13 @@ import Category from 'components/category/category'
 import Input from 'components/input/input'
 import Loader from "components/loader/loader";
 import history from "config/history";
-import { titleVariants, categoryWrapperVariants, TitleSearchVariants, FormVariants, categoryWrapperSearchVariants } from './homeVariants'
+import { titleVariants, categoryWrapperVariants, TitleSearchVariants, FormVariants, categoryWrapperSearchVariants, ContainerVariants } from './homeVariants'
 import { Container, Titleh1, Titleh2, CategoryWrapper, Form } from './homeStyles'
 
 const Home = () => {
+  if (localStorage.getItem("username") === null) {
+    history.push('/login')
+  }
   const category = useSelector(state => state.category)
   const categories = [
     { name: "General Knowledge", id: 9 },
@@ -65,7 +68,7 @@ const Home = () => {
   return (
     <>
       { isLoading ? (<Loader />) : (
-        <Container>
+        <Container initial="hidden" animate="visible" exit="hidden" variants={ContainerVariants}>
           <Titleh1 animate={category.isVisibleCategory && category.search.length === 0 ? "visible" : "hidden"} variants={titleVariants} transition={{ duration: 0.5 }}> {t("ChooseCategory")} 💪🏻</Titleh1 >
           <CategoryWrapper animate={category.isVisibleCategory && category.search.length === 0 ? "visible" : "hidden"} variants={categoryWrapperVariants} transition={{ duration: 0.5 }}>
             {categories.map((c) => (

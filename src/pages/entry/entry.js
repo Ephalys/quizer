@@ -1,11 +1,14 @@
 import React from 'react';
-import { EntrySubtitle, EntryTitle, EntryWrapper, BlackSpan } from './entryStyles'
-import Input from "components/input/input";
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { editUsername } from 'actions/username';
+import Input from "components/input/input";
 import history from 'config/history';
-
+import { EntrySubtitle, EntryTitle, EntryWrapper, BlackSpan } from './entryStyles'
+import { EntryWrapperVariants, EntryItemVariants } from './entryVariants'
 const Entry = () => {
+    const { t } = useTranslation();
     const username = useSelector(state => state.username)
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
@@ -14,19 +17,18 @@ const Entry = () => {
         localStorage.setItem("username", username.username);
     }
     return (
-        <EntryWrapper>
-            <EntryTitle>
-                Welcome to <BlackSpan>Quizer</BlackSpan> 👋🏻
-            </EntryTitle>
-            <EntrySubtitle>
-                Please write down your username to enjoy our fantastic game !
+        <EntryWrapper initial="hidden" animate="visible" exit="hidden" variants={EntryWrapperVariants}>
+            <EntryTitle variants={EntryItemVariants}>
+                {t("Welcome")} <BlackSpan>Quizer</BlackSpan> 👋🏻
+                </EntryTitle>
+            <EntrySubtitle variants={EntryItemVariants}>
+                {t("EnterUsername")}
             </EntrySubtitle>
-            <form onSubmit={handleSubmit}>
+            <motion.form variants={EntryItemVariants} onSubmit={handleSubmit}>
                 <Input placeholder="John Doe" value={username.tmpUsername} arrow={true} onChange={(e) => dispatch(editUsername(e))} />
-            </form>
+            </motion.form>
         </EntryWrapper>
     );
 }
-
 
 export default Entry;

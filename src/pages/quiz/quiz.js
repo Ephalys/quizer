@@ -4,8 +4,12 @@ import QuizItem from 'components/quizItem/quizItem'
 import QuizRecap from "components/quizRecap/quizRecap"
 import { getQuestionsByParams } from 'config/api'
 import { useParams } from "react-router-dom";
+import history from 'config/history'
 
 export const Quiz = () => {
+    if (localStorage.getItem("username") === null) {
+        history.push('/login')
+    }
     const { categoryId } = useParams()
     const [quiz, setQuiz] = useState({})
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
