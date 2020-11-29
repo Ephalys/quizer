@@ -35,7 +35,7 @@ const Home = () => {
       }, 1500);
     }
     if (document.querySelector('h2') !== null && offset === 0) {
-      setOffset(document.querySelector('h2').offsetTop - 56)
+      setOffset(document.querySelector('h2').getBoundingClientRect().top - 56)
     }
     if (offset !== 0) {
       titleVariants.hidden.y = -offset
