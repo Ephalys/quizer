@@ -39,13 +39,21 @@ const QuizItem = props => {
     }
 
     return (
-        <StyledQuizItem>
+        <StyledQuizItem initial="hidden" animate="visible" exit="hidden" variants={{
+            hidden: {
+                opacity: 0
+            },
+            visible: {
+                opacity: 1
+            }
+        }}>
             {!allAnswers && <Loader />}
             {allAnswers && <>
                 <QuizItemType type={type}></QuizItemType>
                 <QuizItemTitle>{decodeHtml(question)}</QuizItemTitle>
-                <QuizItemAnswers>
+                <QuizItemAnswers >
                     {allAnswers.map((elem, index) => {
+                        elem = decodeHtml(elem)
                         if (goodAnswerIndex === index)
                             return <CategoryStyledAnswerGood key={index}>{elem}</CategoryStyledAnswerGood>
                         if (userAnswerIndex === index)
@@ -57,7 +65,7 @@ const QuizItem = props => {
                 </QuizItemAnswers>
             </>
             }
-        </StyledQuizItem>
+        </StyledQuizItem >
     )
 }
 
