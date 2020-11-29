@@ -37,7 +37,7 @@ const Home = () => {
     if (document.querySelector('h2') !== null && offset === 0) {
       setOffset(document.querySelector('h2').offsetTop - 56)
     }
-    if (offset !== null) {
+    if (offset !== 0) {
       titleVariants.hidden.y = -offset
       categoryWrapperVariants.hidden.y = -offset
       TitleSearchVariants.up.y = -offset
@@ -71,11 +71,26 @@ const Home = () => {
   return (
     <>
       { isLoading ? (<Loader />) : (
-        <Container initial="hidden" animate="visible" exit="hidden" variants={ContainerVariants}>
-          <Titleh1 animate={category.isVisibleCategory && category.search.length === 0 ? "visible" : "hidden"} variants={titleVariants} transition={{ duration: 0.5 }}> {t("ChooseCategory")} 💪🏻</Titleh1 >
-          <CategoryWrapper animate={category.isVisibleCategory && category.search.length === 0 ? "visible" : "hidden"} variants={categoryWrapperVariants} transition={{ duration: 0.5 }}>
+        <Container
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={ContainerVariants}>
+          <Titleh1
+              animate={category.isVisibleCategory && category.search.length === 0 ? "visible" : "hidden"}
+              variants={titleVariants}
+              transition={{ duration: 0.5 }}>
+            {t("ChooseCategory")} 💪🏻
+          </Titleh1 >
+          <CategoryWrapper
+              animate={category.isVisibleCategory && category.search.length === 0 ? "visible" : "hidden"}
+              variants={categoryWrapperVariants}
+              transition={{ duration: 0.5 }}>
             {categories.map((c) => (
-              <Category category={c} key={c.id} onClick={() => onCategorySelect(c)} />
+              <Category
+                  category={c}
+                  key={c.id}
+                  onClick={() => onCategorySelect(c)} />
             ))}
           </CategoryWrapper>
           <Titleh2 animate={category.isVisibleCategory && category.search.length === 0 ? "down" : "up"} variants={TitleSearchVariants} transition={{ duration: 0.5 }}>{t("searchCategory")}</Titleh2>

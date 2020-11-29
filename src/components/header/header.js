@@ -4,10 +4,10 @@ import LanguageSelector from "components/languageSelector/languageSelector";
 
 const header = (props) => {
   return (
-    <div>
+    <header>
       <ThemeSelector />
       <LanguageSelector />
-    </div>
+    </header>
   );
 };
 
