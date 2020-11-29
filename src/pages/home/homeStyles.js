@@ -4,7 +4,7 @@ import breakpoints from "assets/styles/breakpoints";
 
 export const Container = styled(motion.div)`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -13,7 +13,7 @@ export const Container = styled(motion.div)`
 export const Titleh1 = styled(motion.h1)`
   font-size: 20px;
   text-align: center;
-  margin: 0 0 40px;
+  margin: 56px 0 40px;
 `
 
 export const CategoryWrapper = styled(motion.div)`
@@ -36,4 +36,16 @@ export const Titleh2 = styled(motion.h2)`
 export const Form = styled(motion.form)`
   display: flex;
   justify-content: center;
+`
+
+export const CategorySearchWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column; 
+  margin: 32px 16px 56px;
+  min-width: 100%;
+  @media (min-width: ${breakpoints.$screenMinXs}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 80%;
+  }
 `

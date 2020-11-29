@@ -19,6 +19,13 @@ const CategoryReducer = (state = initialState, action) => {
         category: action.payload.category
       };
     case TOGGLE_CATEGORY:
+      if (state.search.length === 0) {
+        return {
+          ...state,
+          isVisibleCategory: !state.isVisibleCategory,
+          listCategory: []
+        }
+      }
       return {
         ...state,
         isVisibleCategory: !state.isVisibleCategory

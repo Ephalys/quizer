@@ -9,7 +9,7 @@ import Input from 'components/input/input'
 import Loader from "components/loader/loader";
 import history from "config/history";
 import { titleVariants, categoryWrapperVariants, TitleSearchVariants, FormVariants, categoryWrapperSearchVariants, ContainerVariants } from './homeVariants'
-import { Container, Titleh1, Titleh2, CategoryWrapper, Form } from './homeStyles'
+import { Container, Titleh1, Titleh2, CategoryWrapper, Form, CategorySearchWrapper } from './homeStyles'
 
 const Home = () => {
   if (localStorage.getItem("username") === null) {
@@ -34,7 +34,7 @@ const Home = () => {
         dispatch(toggleLoading())
       }, 1500);
     }
-    if (document.querySelector('h2') !== null) {
+    if (document.querySelector('h2') !== null && offset === 0) {
       setOffset(document.querySelector('h2').offsetTop - 56)
     }
     if (offset !== null) {
@@ -65,6 +65,9 @@ const Home = () => {
       })
   }
 
+  console.log(offset);
+  console.log(category.listCategory);
+
   return (
     <>
       { isLoading ? (<Loader />) : (
@@ -81,9 +84,9 @@ const Home = () => {
           </Form>
           {
             category.listCategory.length !== 0 && (
-              <CategoryWrapper animate={category.listCategory.length !== 0 ? "visible" : "hidden"} variants={categoryWrapperSearchVariants} transition={{ duration: 0.5 }}>
+              <CategorySearchWrapper inital="hidden" animate={category.listCategory.length !== 0 ? "visible" : "hidden"} exit="hidden" variants={categoryWrapperSearchVariants} transition={{ duration: 0.5 }}>
                 {category.listCategory.map(c => <Category category={c} key={c.id} />)}
-              </CategoryWrapper>
+              </CategorySearchWrapper>
             )
           }
         </Container>

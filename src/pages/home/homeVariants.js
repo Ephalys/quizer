@@ -50,10 +50,13 @@ export const FormVariants = {
 export const categoryWrapperSearchVariants = {
   visible: {
     opacity: 1,
-    y: -340
+    y: -360
   },
   hidden: {
     opacity: 0,
     y: 0
-  }
+  },
+  // exit: {
+  //   opacity: 0
+  // }
 }
