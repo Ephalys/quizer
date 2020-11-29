@@ -8,7 +8,7 @@ import Loader from 'components/loader/loader'
 
 const QuizItem = props => {
     const handleTimeout = useRef(null)
-    const { category, type, difficulty, question, correct_answer, incorrect_answers } = props.data
+    const { type, question, correct_answer, incorrect_answers } = props.data
     const { setCurrentQuestionIndex, questionIndex, handleSetResult } = props
     const [allAnswers, setAllAnswers] = useState(undefined)
 
