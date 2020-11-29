@@ -7,6 +7,10 @@ export const StyledQuizItem = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    @media (min-width: ${breakpoints.$screenMinXs}) {
+        transform: translate(0,-25%);
+    }
 `
 
 export const CategoryStyledAnswer = styled(CategoryStyled)`
@@ -40,8 +44,9 @@ export const QuizItemAnswers = styled(motion.div)`
     min-width: 100%;
     @media (min-width: ${breakpoints.$screenMinXs}) {
         flex-direction: row;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         min-width: 80%;
+        justify-content:center;
     }
 `
 

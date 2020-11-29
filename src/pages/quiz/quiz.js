@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { StyledQuiz } from "./quizStyles"
+import { Redirect } from 'react-router-dom'
+import { StyledQuiz, QuizTitle, QuizCategory } from "./quizStyles"
 import QuizItem from 'components/quizItem/quizItem'
 import QuizRecap from "components/quizRecap/quizRecap"
 import { getQuestionsByParams } from 'config/api'
@@ -45,7 +46,8 @@ export const Quiz = () => {
     return (
         <StyledQuiz>
             {!currentQuestion && !isQuizFinished && <Loader />}
-            {currentQuestion && !isQuizFinished && <>
+            {currentQuestion && !isQuizFinished && category.category && <>
+                <QuizTitle >Quizer <QuizCategory> / {category?.category?.name}</QuizCategory></QuizTitle>
                 <QuizItem
                     questionIndex={currentQuestionIndex}
                     key={currentQuestionIndex}
@@ -54,6 +56,9 @@ export const Quiz = () => {
                     addNewAnswer={addNewAnswer}
                 />
             </>}
+            {!category.category &&
+                <Redirect to="/" />
+            }
             {isQuizFinished && <QuizRecap data={allUserAnswers} />
             }
         </StyledQuiz>
