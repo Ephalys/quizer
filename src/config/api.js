@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function getQuestionsByParams({ count = 20, categoryId = null, difficulty = null, type = null }) {
+export async function getQuestionsByParams({ count = 10, categoryId = null, difficulty = null, type = null }) {
   let isError = false;
   let isCategory = false;
   let isDifficulty = false;
