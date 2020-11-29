@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { QuizItemTitle, StyledQuizItem, CategoryStyledAnswerGood, CategoryStyledAnswerBad, CategoryStyledAnswer } from './quizItemStyles'
+import { QuizItemAnswers, QuizItemTitle, StyledQuizItem, CategoryStyledAnswerGood, CategoryStyledAnswerBad, CategoryStyledAnswer } from './quizItemStyles'
 import { CategoryStyled } from 'components/category/categoryStyles'
 import QuizItemType from "components/quizItemType/quizItemType"
 import shuffleArray from "utils/shuffleArray"
+import decodeHtml from 'utils/decodeHtml'
+import Loader from 'components/loader/loader'
 
 const QuizItem = props => {
     const handleTimeout = useRef(null)
@@ -32,25 +34,29 @@ const QuizItem = props => {
                 setCurrentQuestionIndex(questionIndex + 1)
                 setUserAnswerIndex(undefined)
                 setGoodAnswerIndex(undefined)
-            }, 500)
+            }, 1250)
         }
     }
 
     return (
         <StyledQuizItem>
-            <h1>item</h1>
-            {JSON.stringify(userAnswerIndex)}
-            <QuizItemType type={type}></QuizItemType>
-            <QuizItemTitle>{question}</QuizItemTitle>
-            {allAnswers?.map((elem, index) => {
-                if (goodAnswerIndex === index)
-                    return <CategoryStyledAnswerGood key={index}>{elem}</CategoryStyledAnswerGood>
-                if (userAnswerIndex === index)
-                    return <CategoryStyledAnswerBad key={index}>{elem}</CategoryStyledAnswerBad>
-                if (typeof userAnswerIndex !== "undefined")
-                    return <CategoryStyledAnswer key={index}>{elem}</CategoryStyledAnswer>
-                return <CategoryStyled onClick={() => handleClick(index)} key={index}>{elem}</CategoryStyled>
-            })}
+            {!allAnswers && <Loader />}
+            {allAnswers && <>
+                <QuizItemType type={type}></QuizItemType>
+                <QuizItemTitle>{decodeHtml(question)}</QuizItemTitle>
+                <QuizItemAnswers>
+                    {allAnswers.map((elem, index) => {
+                        if (goodAnswerIndex === index)
+                            return <CategoryStyledAnswerGood key={index}>{elem}</CategoryStyledAnswerGood>
+                        if (userAnswerIndex === index)
+                            return <CategoryStyledAnswerBad key={index}>{elem}</CategoryStyledAnswerBad>
+                        if (typeof userAnswerIndex !== "undefined")
+                            return <CategoryStyledAnswer key={index}>{elem}</CategoryStyledAnswer>
+                        return <CategoryStyled onClick={() => handleClick(index)} key={index}>{elem}</CategoryStyled>
+                    })}
+                </QuizItemAnswers>
+            </>
+            }
         </StyledQuizItem>
     )
 }

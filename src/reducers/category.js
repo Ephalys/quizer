@@ -26,7 +26,7 @@ const CategoryReducer = (state = initialState, action) => {
     case GET_CATEGORIES:
       return {
         ...state,
-        listCategory: state.search.length !== 0 ?action.payload.categories : []
+        listCategory: state.search.length !== 0 ? action.payload.categories : []
       }
     default:
       return state
