@@ -42,7 +42,7 @@ export const Quiz = () => {
     useEffect(() => {
         if (quiz.data?.results.length) {
             setResult({
-                category: category.category.name,
+                category: category.category?.name,
                 questCount: quiz.data.results.length,
                 goodAnswerCount: 0
             })
