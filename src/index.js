@@ -73,6 +73,7 @@ h3 {
 
 const App = () => {
   useEffect(() => {
+    const msg = firebase.messaging();
     Notification.requestPermission();
   });
 
