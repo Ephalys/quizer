@@ -74,7 +74,14 @@ h3 {
 const App = () => {
   useEffect(() => {
     const msg = firebase.messaging();
-    Notification.requestPermission();
+    msg
+      .requestPermission()
+      .then(() => {
+        return msg.getToken();
+      })
+      .then((data) => {
+        console.log("token", data);
+      });
   });
 
   const theme = useSelector((state) => state.theme.themeValue);
