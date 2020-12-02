@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { StyledLanguageSelector, Language } from "./languageSelectorStyles";
+import { Language } from "./languageSelectorStyles";
 
 const LanguageSelector = (props) => {
   const { i18n } = useTranslation();
@@ -13,9 +13,7 @@ const LanguageSelector = (props) => {
     }
   };
   return (
-    <StyledLanguageSelector>
       <Language onClick={() => changeLanguage()} />
-    </StyledLanguageSelector>
   );
 };
 

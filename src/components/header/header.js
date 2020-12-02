@@ -1,13 +1,14 @@
 import React from "react";
 import ThemeSelector from "components/themeSelector/themeSelector";
 import LanguageSelector from "components/languageSelector/languageSelector";
+import {Header} from './headerStyles'
 
-const header = (props) => {
+const header = () => {
   return (
-    <header>
+    <Header>
       <ThemeSelector />
       <LanguageSelector />
-    </header>
+    </Header>
   );
 };
 

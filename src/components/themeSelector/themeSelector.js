@@ -19,9 +19,7 @@ const ThemeSelector = () => {
     }
 
     return (
-        <StyledThemeSelector>
-            <Drop onClick={handleClick} />
-        </StyledThemeSelector>
+        <Drop onClick={handleClick} />
     );
 }
 
