@@ -24,16 +24,20 @@ export const CategoryStyledAnswer = styled(CategoryStyled)`
 `
 
 export const CategoryStyledAnswerGood = styled(CategoryStyledAnswer)`
-    color: green;
+    background-color: #00b151;
+    color: white;
     &:hover {
-        color: green;
+        background-color: #00b151;
+        color: white;
     }
 `
 
 export const CategoryStyledAnswerBad = styled(CategoryStyledAnswer)`
-    color: red;
+    background-color: red;
+    color: white;
     &:hover {
-        color: red;
+        background-color: red;
+        color: white;
     }
 `
 
