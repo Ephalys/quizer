@@ -10,9 +10,11 @@ export const StyledQuiz = styled.div`
 `
 
 export const QuizTitle = styled(motion.h3)`
-  @media (min-width: ${breakpoints.$screenMinXs}) {
-      
-  }
+    font-size: 20px;
+    line-height: 18px;
+    @media (min-width: ${breakpoints.$screenMinXs}) {
+      line-height: 24px;
+    }
 `
 
 export const QuizCategory = styled(motion.span)`

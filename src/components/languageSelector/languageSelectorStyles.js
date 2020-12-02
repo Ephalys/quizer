@@ -1,5 +1,6 @@
-import { ReactComponent as LanguageSvg } from "assets/icons/language.svg";
 import styled from "styled-components";
+import { ReactComponent as LanguageSvg } from "assets/icons/language.svg";
+import breakpoints from "assets/styles/breakpoints";
 
 export const Language = styled(LanguageSvg)`
   cursor: pointer;
@@ -9,6 +10,10 @@ export const Language = styled(LanguageSvg)`
 
 export const StyledLanguageSelector = styled.div`
   position: fixed;
-  top: 24px;
+  top: 16px;
   right: 56px;
+  @media (min-width: ${breakpoints.$screenMinXs}) {
+    top: 24px;
+    right: 64px;
+  }
 `;
