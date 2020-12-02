@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "assets/styles/breakpoints";
 
 export const CustomInput = styled.input`
   border-radius: 25px;
@@ -10,6 +11,10 @@ export const CustomInput = styled.input`
   border: 2px solid white;
   transition: all .3s;
   appearance: none;
+  width: 100%;
+  @media (min-width: ${breakpoints.$screenMinXs}) {
+      width: unset;
+  }
   
   &:focus {
     outline: none;
@@ -30,7 +35,12 @@ export const CustomInput = styled.input`
 `
 
 export const InputContainer = styled.div`
-  position: relative
+  position: relative;
+  display: flex;
+  width: 100%;
+  @media (min-width: ${breakpoints.$screenMinXs}) {
+      width: unset;
+  }
 `
 
 export const ArrowButton = styled.button`

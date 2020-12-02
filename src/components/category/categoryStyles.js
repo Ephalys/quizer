@@ -10,13 +10,14 @@ export const CategoryStyled = styled.div`
   justify-content: center;
   border-radius: 12px;
   transition: all .3s;
-  margin: 0 12px 16px;
+  margin: 0 16px 16px;
   border: 2px solid transparent;
   flex-basis: 100%;
   padding: 8px 16px;
   text-align: center;
   @media (min-width: ${breakpoints.$screenMinXs}) {
     flex-basis: calc(50% - 32px);
+    margin: 0 12px 16px;
   }
   @media (min-width: ${breakpoints.$screenMinMd}) {
     flex-basis: calc(25% - 32px);
