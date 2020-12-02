@@ -7,10 +7,9 @@ export const StyledQuizItem = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
-    @media (min-width: ${breakpoints.$screenMinXs}) {
-        transform: translate(0,-25%);
-    }
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 `
 
 export const CategoryStyledAnswer = styled(CategoryStyled)`

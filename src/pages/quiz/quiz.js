@@ -64,7 +64,11 @@ export const Quiz = () => {
         <StyledQuiz>
             {!currentQuestion && !isQuizFinished && <Loader />}
             {currentQuestion && !isQuizFinished && category.category && <>
-                <QuizTitle><QuizRedirect onClick={handleRedirectHome}>Quizer</QuizRedirect><QuizCategory> / {category?.category?.name}</QuizCategory></QuizTitle>
+                <QuizTitle>
+                    <QuizRedirect onClick={handleRedirectHome}>
+                        Quizer</QuizRedirect>
+                    <QuizCategory> / {category?.category?.name}</QuizCategory>
+                </QuizTitle>
                 <QuizItem
                     questionIndex={currentQuestionIndex}
                     key={currentQuestionIndex}
@@ -73,10 +77,9 @@ export const Quiz = () => {
                     handleSetResult={handleSetResult}
                 />
             </>}
-            {!category.category &&
-                <Redirect to="/" />
-            }
-            {isQuizFinished && <QuizRecap data={result} />
+            {!category.category && <Redirect to="/" />}
+            {
+                isQuizFinished && <QuizRecap data={result} />
             }
         </StyledQuiz>
     )
