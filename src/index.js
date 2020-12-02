@@ -11,7 +11,7 @@ import "./config/i18n";
 import { Router } from "react-router-dom";
 import history from "config/history";
 import Header from "./components/header/header";
-import firebase from "./firebase";
+// import firebase from "./firebase";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -72,16 +72,19 @@ h3 {
 `;
 
 const App = () => {
+  // useEffect(() => {
+  //   const msg = firebase.messaging();
+  //   msg
+  //     .requestPermission()
+  //     .then(() => {
+  //       return msg.getToken();
+  //     })
+  //     .then((data) => {
+  //       console.log("token", data);
+  //     });
+  // });
   useEffect(() => {
-    const msg = firebase.messaging();
-    msg
-      .requestPermission()
-      .then(() => {
-        return msg.getToken();
-      })
-      .then((data) => {
-        console.log("token", data);
-      });
+    Notification.requestPermission();
   });
 
   const theme = useSelector((state) => state.theme.themeValue);
