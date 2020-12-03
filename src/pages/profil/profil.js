@@ -16,7 +16,7 @@ const Profil = () => {
     };
 
     return (
-        <Container>
+        <Container exit="hidden">
             <HomeButton onClick={handleRedirectHome}>{"< Home"}</HomeButton>
 
             <h1>Hello, {username} !</h1>

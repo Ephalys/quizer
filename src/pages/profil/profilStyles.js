@@ -6,7 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-
+  padding: 0 16px;
+  
   @media (min-width: ${breakpoints.$screenMinXs}) {
     padding: 0 32px;
   }

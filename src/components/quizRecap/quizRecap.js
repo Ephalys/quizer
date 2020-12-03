@@ -4,10 +4,11 @@ import {
     StyledQuizRecap,
     QuizRecapContainer,
     QuizRecapScore,
-    QuizRecapCongrats,
+    FavButton,
+    FavoriteContainer
 } from "./quizRecapStyles";
 import { useDispatch } from "react-redux";
-import { updateScore, updateScoreTable } from "actions/score";
+import { updateScoreTable } from "actions/score";
 import { favoriteCategories } from "actions/category";
 import { useSelector } from "react-redux";
 import FavoriteBorder from "assets/icons/favorite_border.svg";
@@ -57,7 +58,6 @@ const QuizRecap = (props) => {
     }, [goodAnswerCountRef.current]);
 
 
-
     return (
         <StyledQuizRecap
             initial="hidden"
@@ -72,15 +72,23 @@ const QuizRecap = (props) => {
                 },
             }}
         >
-            <QuizRecapTitle onClick={handleRedirectHome}>Quizer</QuizRecapTitle>
+            <QuizRecapTitle
+                onClick={handleRedirectHome}>Quizer</QuizRecapTitle>
             <QuizRecapContainer>
-                <button onClick={() => dispatch(favoriteCategories(categoryObject))}>
-                    {index === -1 ? <img src={FavoriteBorder} /> : <img src={Favorite} />}
-                </button>
-                <QuizRecapScore>
+                <QuizRecapScore
+                    exit="hidden">
                     {goodAnswerCountRef.current} / {questCount}
                 </QuizRecapScore>
-                <QuizRecapCongrats>{congrats}</QuizRecapCongrats>
+                <h2>{congrats}</h2>
+                <FavoriteContainer>
+                    <p>
+                        If you like this category, you can save it for further games.
+                    </p>
+                    <FavButton
+                        onClick={() => dispatch(favoriteCategories(categoryObject))}>
+                        {index === -1 ? <img src={FavoriteBorder} /> : <img src={Favorite} />}
+                    </FavButton>
+                </FavoriteContainer>
             </QuizRecapContainer>
         </StyledQuizRecap>
     );

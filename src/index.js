@@ -51,6 +51,12 @@ body {
     -o-background-size: cover;
     background-size: cover;
   }
+  
+  button {
+    &:focus {
+      outline: none;
+    }
+  }
 }
   
 #root {

@@ -7,7 +7,7 @@ export const defaultTheme = {
 
 const MartiniTheme = {
     colors: {
-        primary: `#24FE41`,
+        primary: `#1cba31`,
         secondary: `#FDFC47`
     }
 }
@@ -22,7 +22,7 @@ const ByDesignTheme = {
 const MidnightCityTheme = {
     colors: {
         primary: `#232526`,
-        secondary: `#414345`
+        secondary: `#c407c4`
     }
 }
 

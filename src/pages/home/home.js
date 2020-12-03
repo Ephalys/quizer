@@ -29,11 +29,27 @@ import {
   Form,
   CategorySearchWrapper,
 } from "./homeStyles";
+import { favoriteCategories } from "actions/category";
+import { updateScoreTable } from "actions/score";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
   if (localStorage.getItem("username") === null) {
     history.push("/login");
   }
+
+  // if (
+  //   localStorage.getItem("scoreTable") &&
+  //   localStorage.getItem("scoreTable").length > 0
+  // ) {
+  //   let ScoreTable = JSON.parse(localStorage.getItem("scoreTable"));
+
+  //   ScoreTable.forEach((element) => {
+  //     dispatch(updateScoreTable(element));
+  //   });
+  // }
+
   const category = useSelector((state) => state.category);
   const categories = [
     { name: "General Knowledge", id: 9 },
@@ -43,7 +59,6 @@ const Home = () => {
   ];
   const [offset, setOffset] = useState(0);
 
-  const dispatch = useDispatch();
   const { t } = useTranslation();
 
   let isLoading = useSelector((state) => state.loading.isLoading);
@@ -53,6 +68,25 @@ const Home = () => {
         dispatch(toggleLoading());
       }, 1500);
     }
+
+    if (
+      localStorage.getItem("FavoritesCategories") &&
+      localStorage.getItem("FavoritesCategories").length > 0
+    ) {
+      let FavoritesCategories = JSON.parse(
+        localStorage.getItem("FavoritesCategories")
+      );
+      dispatch(favoriteCategories(FavoritesCategories));
+    }
+
+    if (
+      localStorage.getItem("scoreTable") &&
+      localStorage.getItem("scoreTable").length > 0
+    ) {
+      let ScoreTable = JSON.parse(localStorage.getItem("scoreTable"));
+      dispatch(updateScoreTable(ScoreTable));
+    }
+
     if (document.querySelector("h2") !== null && offset === 0) {
       setOffset(document.querySelector("h2").getBoundingClientRect().top - 56);
     }

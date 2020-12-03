@@ -4,37 +4,21 @@ import Nomatch from "pages/nomatch/nomatch";
 import Home from "pages/home/home";
 import Entry from "pages/entry/entry";
 import Quiz from "pages/quiz/quiz";
-import ProtectedRoute from "./ProtectedRoute";
 import { AnimatePresence } from "framer-motion";
 import Profil from "pages/profil/profil";
 
 const Routes = () => {
   // const location = useLocation();
   return (
-    // <AnimatePresence exitBeforeEnter>
-      <Switch /* location={location} key={location.pathname} */>
-        {/*
-                <ProtectedRoute exact path="/login" component={Entry} mustBeLogged={false} />
-                <ProtectedRoute exact path="/" component={Home} mustBeLogged={true} />
-                <ProtectedRoute exact path="/quiz/:categoryId" component={Quiz} mustBeLogged={true} />
-                */}
-        <Route path="/login" exact>
-          <Entry />
-        </Route>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route exact path="/quiz/:categoryId">
-          <Quiz />
-        </Route>
-        <Route exact path="/profil">
-          <Profil />
-        </Route>
-        <Route path="*">
-          <Nomatch />
-        </Route>
+    <AnimatePresence exitBeforeEnter>
+      <Switch location={location} key={location.pathname}>
+        <Route path="/login" exact component={Entry}/>
+        <Route path="/" exact component={Home}/>
+        <Route exact path="/quiz/:categoryId" component={Quiz}/>
+        <Route exact path="/profil" component={Profil}/>
+        <Route path="*" component={Nomatch}/>
       </Switch>
-    // </AnimatePresence>
+    </AnimatePresence >
   );
 };
 
