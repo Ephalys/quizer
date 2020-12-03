@@ -80,10 +80,8 @@ h3 {
 
 const App = () => {
   useEffect(() => {
-    if (isIOS === false) {
-      const msg = firebase.messaging();
-      msg.requestPermission();
-    }
+    const msg = firebase.messaging();
+    msg.requestPermission();
   });
 
   const theme = useSelector((state) => state.theme.themeValue);
