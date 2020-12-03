@@ -80,7 +80,7 @@ h3 {
 
 const App = () => {
   useEffect(() => {
-    if (isAndroid === true) {
+    if (isIOS === false) {
       const msg = firebase.messaging();
       msg.requestPermission();
     }
