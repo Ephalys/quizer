@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import breakpoints from "assets/styles/breakpoints";
+import { motion } from "framer-motion";
 
-export const CategoryStyled = styled.div`
+export const CategoryStyled = styled(motion.div)`
   color: black;
   background-color: white;
   font-weight: bold;

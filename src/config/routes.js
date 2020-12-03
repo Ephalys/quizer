@@ -9,10 +9,10 @@ import { AnimatePresence } from "framer-motion";
 import Profil from "pages/profil/profil";
 
 const Routes = () => {
-  const location = useLocation();
+  // const location = useLocation();
   return (
-    <AnimatePresence exitBeforeEnter>
-      <Switch location={location} key={location.pathname}>
+    // <AnimatePresence exitBeforeEnter>
+      <Switch /* location={location} key={location.pathname} */>
         {/*
                 <ProtectedRoute exact path="/login" component={Entry} mustBeLogged={false} />
                 <ProtectedRoute exact path="/" component={Home} mustBeLogged={true} />
@@ -34,7 +34,7 @@ const Routes = () => {
           <Nomatch />
         </Route>
       </Switch>
-    </AnimatePresence>
+    // </AnimatePresence>
   );
 };
 

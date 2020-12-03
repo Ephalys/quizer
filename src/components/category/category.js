@@ -1,9 +1,10 @@
 import React from "react";
 import { CategoryStyled } from "./categoryStyles";
+import { CategoryStyledVariants } from "./categoryVariants"
 
 const Category = (props) => {
   return (
-    <CategoryStyled onClick={props.onClick}>
+    <CategoryStyled variants={CategoryStyledVariants} onClick={props.onClick}>
       {props.category.name}
     </CategoryStyled>
   );
