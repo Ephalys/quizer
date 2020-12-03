@@ -1,6 +1,11 @@
-import axios from 'axios'
+import axios from "axios";
 
-export async function getQuestionsByParams({ count = 10, categoryId = null, difficulty = null, type = null }) {
+export async function getQuestionsByParams({
+  count = 10,
+  categoryId = null,
+  difficulty = null,
+  type = null,
+}) {
   let isError = false;
   let isCategory = false;
   let isDifficulty = false;
@@ -17,25 +22,28 @@ export async function getQuestionsByParams({ count = 10, categoryId = null, diff
   }
 
   if (categoryId !== null) {
-    categoryId = Number(categoryId)
+    categoryId = Number(categoryId);
     if (isNaN(categoryId)) {
       console.warn("Second parameter have to be a number.");
       isError = true;
     }
 
-    await axios.get('https://opentdb.com/api_category.php')
-      .then(datas => {
-        let categories = datas.data.trivia_categories;
+    await axios.get("https://opentdb.com/api_category.php").then((datas) => {
+      let categories = datas.data.trivia_categories;
 
-        const filter = categories.filter(category => category.id === categoryId)
+      const filter = categories.filter(
+        (category) => category.id === categoryId
+      );
 
-        if (filter.length === 0) {
-          console.warn("Invalid second parameter. Please read the API documentation.");
-          isError = true;
-        }
+      if (filter.length === 0) {
+        console.warn(
+          "Invalid second parameter. Please read the API documentation."
+        );
+        isError = true;
+      }
 
-        isCategory = true;
-      })
+      isCategory = true;
+    });
   }
 
   if (difficulty !== null) {
@@ -46,7 +54,9 @@ export async function getQuestionsByParams({ count = 10, categoryId = null, diff
     const difficulties = ["easy", "medium", "hard"];
 
     if (difficulties.indexOf(difficulty) === -1) {
-      console.warn('Third parameter have to be either "easy", or "medium", or "hard".');
+      console.warn(
+        'Third parameter have to be either "easy", or "medium", or "hard".'
+      );
       isError = true;
     }
     isDifficulty = true;
@@ -60,23 +70,31 @@ export async function getQuestionsByParams({ count = 10, categoryId = null, diff
     const types = ["multiple", "boolean"];
 
     if (types.indexOf(type) === -1) {
-      console.warn('Forth parameter have to be either "multiple", or "boolean".');
+      console.warn(
+        'Forth parameter have to be either "multiple", or "boolean".'
+      );
       isError = true;
     }
-    isType = true
+    isType = true;
   }
 
   if (isError) {
     return;
   }
 
-  return axios.get(`https://opentdb.com/api.php?amount=${count}${isCategory ? `&category=${categoryId}` : ""}${isDifficulty ? `&difficulty=${difficulty}` : ""}${isType ? `&type=${type}` : ""}`)
+  return axios.get(
+    `https://opentdb.com/api.php?amount=${count}${
+      isCategory ? `&category=${categoryId}` : ""
+    }${isDifficulty ? `&difficulty=${difficulty}` : ""}${
+      isType ? `&type=${type}` : ""
+    }`
+  );
 }
 
 export function getCategories() {
-  return axios.get('https://opentdb.com/api_category.php')
+  return axios.get("https://opentdb.com/api_category.php");
 }
 
 export function getGlobalStats() {
-  return axios.get('https://opentdb.com/api_count_global.php')
+  return axios.get("https://opentdb.com/api_count_global.php");
 }

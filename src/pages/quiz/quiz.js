@@ -1,85 +1,96 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom'
-import { StyledQuiz, QuizTitle, QuizCategory, QuizRedirect } from "./quizStyles"
-import QuizItem from 'components/quizItem/quizItem'
-import QuizRecap from "components/quizRecap/quizRecap"
-import { getQuestionsByParams } from 'config/api'
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Redirect, useHistory } from "react-router-dom";
+import {
+  StyledQuiz,
+  QuizTitle,
+  QuizCategory,
+  QuizRedirect,
+} from "./quizStyles";
+import QuizItem from "components/quizItem/quizItem";
+import QuizRecap from "components/quizRecap/quizRecap";
+import { getQuestionsByParams } from "config/api";
 import { useParams } from "react-router-dom";
-import Loader from 'components/loader/loader';
+import Loader from "components/loader/loader";
 
 export const Quiz = () => {
-    const history = useHistory()
-    if (localStorage.getItem("username") === null) {
-        history.push('/login')
+  const history = useHistory();
+  if (localStorage.getItem("username") === null) {
+    history.push("/login");
+  }
+  const { categoryId } = useParams();
+  const category = useSelector((state) => state.category);
+  const [quiz, setQuiz] = useState({});
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(undefined);
+  const [result, setResult] = useState();
+  const [isQuizFinished, setIsQuizFinished] = useState(false);
+
+  useEffect(() => {
+    const initQuiz = async () => {
+      setQuiz(
+        await getQuestionsByParams({
+          categoryId,
+        })
+      );
+    };
+    initQuiz();
+  }, [categoryId]);
+
+  useEffect(() => {
+    if (quiz.data?.results.length) {
+      if (currentQuestionIndex < quiz.data?.results.length)
+        setCurrentQuestion(quiz.data?.results[currentQuestionIndex]);
+      else setIsQuizFinished(true);
     }
-    const { categoryId } = useParams()
-    const category = useSelector(state => state.category)
-    const [quiz, setQuiz] = useState({})
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-    const [currentQuestion, setCurrentQuestion] = useState(undefined)
-    const [result, setResult] = useState()
-    const [isQuizFinished, setIsQuizFinished] = useState(false)
+  }, [currentQuestionIndex, quiz]);
 
-    useEffect(() => {
-        const initQuiz = async () => {
-            setQuiz(await getQuestionsByParams({
-                categoryId,
-            }))
-        }
-        initQuiz()
-    }, [categoryId])
-
-    useEffect(() => {
-        if (quiz.data?.results.length) {
-            if (currentQuestionIndex < quiz.data?.results.length)
-                setCurrentQuestion(quiz.data?.results[currentQuestionIndex])
-            else
-                setIsQuizFinished(true)
-        }
-    }, [currentQuestionIndex, quiz])
-
-    useEffect(() => {
-        if (quiz.data?.results.length) {
-            setResult({
-                category: category.category?.name,
-                questCount: quiz.data.results.length,
-                goodAnswerCount: 0
-            })
-        }
-    }, [quiz, category])
-
-    const handleSetResult = isUserAnswerCorrect => {
-        if (isUserAnswerCorrect) {
-            const newResult = { ...result, goodAnswerCount: result.goodAnswerCount + 1 }
-            setResult(newResult)
-        }
+  useEffect(() => {
+    if (quiz.data?.results.length) {
+      setResult({
+        category: category.category?.name,
+        questCount: quiz.data.results.length,
+        goodAnswerCount: 0,
+      });
     }
+  }, [quiz, category]);
 
-    const handleRedirectHome = () => {
-        history.push("/")
+  const handleSetResult = (isUserAnswerCorrect) => {
+    if (isUserAnswerCorrect) {
+      const newResult = {
+        ...result,
+        goodAnswerCount: result.goodAnswerCount + 1,
+      };
+      setResult(newResult);
     }
+  };
 
-    return (
-        <StyledQuiz>
-            {!currentQuestion && !isQuizFinished && <Loader />}
-            {currentQuestion && !isQuizFinished && category.category && <>
-                <QuizTitle><QuizRedirect onClick={handleRedirectHome}>Quizer</QuizRedirect><QuizCategory> / {category?.category?.name}</QuizCategory></QuizTitle>
-                <QuizItem
-                    questionIndex={currentQuestionIndex}
-                    key={currentQuestionIndex}
-                    data={currentQuestion}
-                    setCurrentQuestionIndex={setCurrentQuestionIndex}
-                    handleSetResult={handleSetResult}
-                />
-            </>}
-            {!category.category &&
-                <Redirect to="/" />
-            }
-            {isQuizFinished && <QuizRecap data={result} />
-            }
-        </StyledQuiz>
-    )
-}
+  const handleRedirectHome = () => {
+    history.push("/");
+  };
 
-export default Quiz
+  return (
+    <StyledQuiz>
+      {!currentQuestion && !isQuizFinished && <Loader />}
+      {currentQuestion && !isQuizFinished && category.category && (
+        <>
+          <QuizTitle>
+            <QuizRedirect onClick={handleRedirectHome}>Quizer</QuizRedirect>
+            <QuizCategory> / {category?.category?.name}</QuizCategory>
+          </QuizTitle>
+          <QuizItem
+            questionIndex={currentQuestionIndex}
+            key={currentQuestionIndex}
+            data={currentQuestion}
+            setCurrentQuestionIndex={setCurrentQuestionIndex}
+            handleSetResult={handleSetResult}
+          />
+        </>
+      )}
+      {!category.category && <Redirect to="/" />}
+      {isQuizFinished && <QuizRecap data={result} />}
+    </StyledQuiz>
+  );
+};
+
+export default Quiz;

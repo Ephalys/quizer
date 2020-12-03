@@ -83,6 +83,9 @@ const App = () => {
         console.log("token", data);
       });
   });
+  // useEffect(() => {
+  //   Notification.requestPermission();
+  // });
 
   const theme = useSelector((state) => state.theme.themeValue);
   return (

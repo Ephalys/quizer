@@ -48,7 +48,7 @@ const QuizItem = props => {
         }}>
             {!allAnswers && <Loader />}
             {allAnswers && <>
-                <QuizItemType type={type}></QuizItemType>
+                <QuizItemType type={type}/>
                 <QuizItemTitle>{decodeHtml(question)}</QuizItemTitle>
                 <QuizItemAnswers >
                     {allAnswers.map((elem, index) => {
