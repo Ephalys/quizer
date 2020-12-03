@@ -13,7 +13,10 @@ export const HeaderStyled = styled.div`
   }
 
   svg {
-    margin-right: 16px;
+    margin-right: 8px;
+    @media (min-width: ${breakpoints.$screenMinXs}) {
+      margin-right: 16px;
+    }
     &:last-child {
       margin-right: 0;
     }
