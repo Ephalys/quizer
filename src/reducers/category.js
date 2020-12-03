@@ -51,9 +51,10 @@ const CategoryReducer = (state = initialState, action) => {
       if (index === -1) newFav = [...state.FavoritesCategories, action.payload];
       else {
         newFav = state.FavoritesCategories.filter(
-          (e) => e.id != action.payload.id
+          (e) => e.id !== action.payload.id
         );
       }
+      localStorage.setItem("FavoritesCategories", JSON.stringify(newFav));
       return {
         ...state,
         FavoritesCategories: newFav,

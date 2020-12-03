@@ -15,6 +15,7 @@ const Score = (state = initialState, action) => {
       };
     case UPDATE_SCORE_TABLE:
       let newScoreTable = [...state.scoreTable, action.payload];
+      localStorage.setItem("scoreTable", JSON.stringify(newScoreTable));
       return {
         ...state,
         scoreTable: newScoreTable,
