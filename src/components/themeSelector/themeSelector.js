@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AllThemes from 'assets/styles/themes';
 import { useDispatch } from 'react-redux';
 import { applyTheme } from 'actions/theme'
-import { StyledThemeSelector, Drop } from './themeSelectorStyles'
+import { Drop } from './themeSelectorStyles'
 
 const ThemeSelector = () => {
     const dispatch = useDispatch();
