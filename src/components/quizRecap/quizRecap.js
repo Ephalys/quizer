@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     QuizRecapTitle,
     StyledQuizRecap,
@@ -15,6 +15,7 @@ import Favorite from "assets/icons/favorite.svg";
 import history from "config/history";
 
 const QuizRecap = (props) => {
+    const goodAnswerCountRef = useRef(null)
     const { category, questCount, goodAnswerCount } = props.data;
     const [congrats, setCongrats] = useState();
     const dispatch = useDispatch();
@@ -28,26 +29,32 @@ const QuizRecap = (props) => {
     };
 
     useEffect(() => {
+        if (!goodAnswerCountRef.current) {
+            goodAnswerCountRef.current = goodAnswerCount
+        }
+    }, [goodAnswerCount])
+
+    useEffect(() => {
         let tempCongrats;
-        if (0 <= goodAnswerCount <= 3) {
+        if (0 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 3) {
             tempCongrats = "Unlucky !";
-        } else if (4 <= goodAnswerCount <= 6) {
+        } else if (4 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 6) {
             tempCongrats = "Keep goin' !";
-        } else if (7 <= goodAnswerCount <= 9) {
+        } else if (7 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 9) {
             tempCongrats = "Nice !";
-        } else if (goodAnswerCount === 10) {
+        } else if (goodAnswerCountRef.current && goodAnswerCountRef.current === 10) {
             tempCongrats = "Incredible !";
         }
         setCongrats(tempCongrats);
         let ScoreRecap = {
-            goodAnswerCount: goodAnswerCount,
+            goodAnswerCount: goodAnswerCountRef.current,
             questCount: questCount,
             category: category,
         };
         dispatch(updateScoreTable(ScoreRecap));
-    }, [goodAnswerCount]);
+    }, [goodAnswerCountRef.current]);
 
-    useEffect(() => { }, [dispatch, goodAnswerCount, category]);
+
 
     return (
         <StyledQuizRecap
@@ -69,7 +76,7 @@ const QuizRecap = (props) => {
                     {index === -1 ? <img src={FavoriteBorder} /> : <img src={Favorite} />}
                 </button>
                 <QuizRecapScore>
-                    {goodAnswerCount} / {questCount}
+                    {goodAnswerCountRef.current} / {questCount}
                 </QuizRecapScore>
                 <QuizRecapCongrats>{congrats}</QuizRecapCongrats>
             </QuizRecapContainer>

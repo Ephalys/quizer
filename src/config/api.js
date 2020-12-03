@@ -83,10 +83,8 @@ export async function getQuestionsByParams({
   }
 
   return axios.get(
-    `https://opentdb.com/api.php?amount=${count}${
-      isCategory ? `&category=${categoryId}` : ""
-    }${isDifficulty ? `&difficulty=${difficulty}` : ""}${
-      isType ? `&type=${type}` : ""
+    `https://opentdb.com/api.php?amount=${count}${isCategory ? `&category=${categoryId}` : ""
+    }${isDifficulty ? `&difficulty=${difficulty}` : ""}${isType ? `&type=${type}` : ""
     }`
   );
 }
