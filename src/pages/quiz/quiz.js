@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import history from "config/history";
 import {
   StyledQuiz,
   QuizTitle,
@@ -14,7 +15,6 @@ import { useParams } from "react-router-dom";
 import Loader from "components/loader/loader";
 
 export const Quiz = () => {
-  const history = useHistory();
   if (localStorage.getItem("username") === null) {
     history.push("/login");
   }
