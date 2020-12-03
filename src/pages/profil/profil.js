@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import history from "config/history";
 import Category from "components/category/category";
 import { useDispatch } from "react-redux";
-import { selectCategory } from "actions/category";
 
 const Profil = () => {
   const dispatch = useDispatch();
@@ -17,15 +16,6 @@ const Profil = () => {
     history.push("/");
   };
 
-  const onCategorySelect = (category) => {
-    // dispatch(selectCategory(category));
-    // localStorage.setItem("category", JSON.stringify(category));
-    // history.push(`/quiz/${category.id}`);
-  };
-
-  useEffect(() => {
-    console.log("Score: ", scoreTable, "fav: ", favoritesCategories);
-  });
   return (
     <div>
       <button onClick={handleRedirectHome}> Home </button>
@@ -33,7 +23,7 @@ const Profil = () => {
       {username}
 
       {favoritesCategories.map((c) => (
-        <Category category={c} key={c.id} onClick={() => onCategorySelect(c)} />
+        <Category category={c} key={c.id} />
       ))}
       {scoreTable.map((s, index) => (
         <div key={index}>
