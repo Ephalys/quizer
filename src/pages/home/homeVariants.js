@@ -3,7 +3,11 @@ export const ContainerVariants = {
     opacity: 0
   },
   visible: {
-    opacity: 1
+    opacity: 1,
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.2
+    }
   }
 }
 

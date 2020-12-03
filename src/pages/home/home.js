@@ -117,88 +117,88 @@ const Home = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Container
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={ContainerVariants}
-        >
-          <Titleh1
-            animate={
-              category.isVisibleCategory && category.search.length === 0
-                ? "visible"
-                : "hidden"
-            }
-            variants={titleVariants}
-            transition={{ duration: 0.5 }}
+          <Container
+            initial="hidden"
+            animate="visible"
+            // exit="hidden"  
+            variants={ContainerVariants}
           >
-            {t("ChooseCategory")} 💪🏻
-          </Titleh1>
-          <CategoryWrapper
-            animate={
-              category.isVisibleCategory && category.search.length === 0
-                ? "visible"
-                : "hidden"
-            }
-            variants={categoryWrapperVariants}
-            transition={{ duration: 0.5 }}
-          >
-            {categories.map((c) => (
-              <Category
-                category={c}
-                key={c.id}
-                onClick={() => onCategorySelect(c)}
-              />
-            ))}
-          </CategoryWrapper>
-          <Titleh2
-            animate={
-              category.isVisibleCategory && category.search.length === 0
-                ? "down"
-                : "up"
-            }
-            variants={TitleSearchVariants}
-            transition={{ duration: 0.5 }}
-          >
-            {t("searchCategory")}
-          </Titleh2>
-          <Form
-            animate={
-              category.isVisibleCategory && category.search.length === 0
-                ? "down"
-                : "up"
-            }
-            variants={FormVariants}
-            transition={{ duration: 0.5 }}
-            onSubmit={handleSubmit}
-          >
-            <Input
-              placeholder="Art, Science, History..."
-              name="search"
-              value={category.search}
-              arrow={true}
-              onFocus={() => dispatch(toggleCategory())}
-              onBlur={() => dispatch(toggleCategory())}
-              onChange={(e) => dispatch(editSearch(e))}
-            />
-          </Form>
-          {category.listCategory.length !== 0 && (
-            <CategorySearchWrapper
-              inital="hidden"
+            <Titleh1
               animate={
-                category.listCategory.length !== 0 ? "visible" : "hidden"
+                category.isVisibleCategory && category.search.length === 0
+                  ? "visible"
+                  : "hidden"
               }
-              exit="hidden"
-              variants={categoryWrapperSearchVariants}
+              variants={titleVariants}
               transition={{ duration: 0.5 }}
             >
-              {category.listCategory.map((c) => (
-                <Category category={c} key={c.id} />
+              {t("ChooseCategory")} 💪🏻
+          </Titleh1>
+            <CategoryWrapper
+              animate={
+                category.isVisibleCategory && category.search.length === 0
+                  ? "visible"
+                  : "hidden"
+              }
+              variants={categoryWrapperVariants}
+              transition={{ duration: 0.5 }}
+            >
+              {categories.map((c) => (
+                <Category
+                  category={c}
+                  key={c.id}
+                  onClick={() => onCategorySelect(c)}
+                />
               ))}
-            </CategorySearchWrapper>
-          )}
-        </Container>
-      )}
+            </CategoryWrapper>
+            <Titleh2
+              animate={
+                category.isVisibleCategory && category.search.length === 0
+                  ? "down"
+                  : "up"
+              }
+              variants={TitleSearchVariants}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              {t("searchCategory")}
+            </Titleh2>
+            <Form
+              animate={
+                category.isVisibleCategory && category.search.length === 0
+                  ? "down"
+                  : "up"
+              }
+              variants={FormVariants}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              onSubmit={handleSubmit}
+            >
+              <Input
+                placeholder="Art, Science, History..."
+                name="search"
+                value={category.search}
+                arrow={true}
+                onFocus={() => dispatch(toggleCategory())}
+                onBlur={() => dispatch(toggleCategory())}
+                onChange={(e) => dispatch(editSearch(e))}
+              />
+            </Form>
+            {category.listCategory.length !== 0 && (
+              <CategorySearchWrapper
+                inital="hidden"
+                animate={
+                  category.listCategory.length !== 0 ? "visible" : "hidden"
+                }
+                // exit="hidden"
+                variants={categoryWrapperSearchVariants}
+                transition={{ duration: 0.5 }}
+              >
+                {category.listCategory.map((c) => (
+                  <Category category={c} key={c.id} />
+                ))}
+              </CategorySearchWrapper>
+            )}
+          </Container>
+        )}
     </>
   );
 };

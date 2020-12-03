@@ -9,7 +9,7 @@ import Profil from "pages/profil/profil";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Routes = () => {
-  const location = useLocation();
+  // const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>

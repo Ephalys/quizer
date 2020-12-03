@@ -4,16 +4,24 @@ import breakpoints from "assets/styles/breakpoints";
 
 export const Container = styled(motion.div)`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   width: 100%;
 `
 
+export const FirstWrapper = styled(motion.div)`
+
+`
+
+export const SecondWrapper = styled(motion.div)`
+
+`
+
 export const Titleh1 = styled(motion.h1)`
   font-size: 20px;
   text-align: center;
-  margin: 32px 0 24px;
+  margin: 56px 0 24px;
  
   @media (min-width: ${breakpoints.$screenMinXs}) {
     margin: 56px 0 40px;
@@ -23,7 +31,7 @@ export const Titleh1 = styled(motion.h1)`
 export const CategoryWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column; 
-  margin: 0 16px 40px;
+  margin-bottom: 40px;
   min-width: 100%;
   @media (min-width: ${breakpoints.$screenMinXs}) {
   margin: 0 16px 56px;
@@ -45,6 +53,7 @@ export const Form = styled(motion.form)`
   display: flex;
   justify-content: center;
   width: calc(100% - 32px);
+  margin: 0 auto;
   
   @media (min-width: ${breakpoints.$screenMinXs}) {
       width: unset;
