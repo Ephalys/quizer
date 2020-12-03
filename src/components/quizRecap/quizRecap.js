@@ -7,7 +7,7 @@ import {
     QuizRecapCongrats,
 } from "./quizRecapStyles";
 import { useDispatch } from "react-redux";
-import { updateScore, updateScoreTable } from "actions/score";
+import { updateScoreTable } from "actions/score";
 import { favoriteCategories } from "actions/category";
 import { useSelector } from "react-redux";
 import FavoriteBorder from "assets/icons/favorite_border.svg";
