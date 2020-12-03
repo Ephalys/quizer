@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import Profil from "pages/profil/profil";
 
 const Routes = () => {
-  // const location = useLocation();
+  const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch location={location} key={location.pathname}>
