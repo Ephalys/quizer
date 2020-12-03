@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, withRouter, useLocation } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Nomatch from "pages/nomatch/nomatch";
 import Home from "pages/home/home";
 import Entry from "pages/entry/entry";
@@ -9,7 +9,6 @@ import Profil from "pages/profil/profil";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Routes = () => {
-  // const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
       <Switch>

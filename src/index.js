@@ -80,16 +80,9 @@ h3 {
 
 const App = () => {
   useEffect(() => {
-    if (isAndroid) {
+    if (isAndroid === true) {
       const msg = firebase.messaging();
-      msg
-        .requestPermission()
-        .then(() => {
-          return msg.getToken();
-        })
-        .then((data) => {
-          console.log("token", data);
-        });
+      msg.requestPermission();
     }
   });
 
