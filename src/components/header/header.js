@@ -4,8 +4,6 @@ import LanguageSelector from "components/languageSelector/languageSelector";
 import { useSelector } from "react-redux";
 import {
     HeaderStyled,
-    StyledTitle,
-    StyledContainerIcones,
 } from "./headerStyles";
 import ProfilSelector from "components/profilSelector/profilSelector";
 
