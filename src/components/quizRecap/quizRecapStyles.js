@@ -8,7 +8,9 @@ export const StyledQuizRecap = styled(motion.div)`
     align-items:center;
     height: 100%;
 `
-export const QuizRecapTitle = styled(motion.h2)``
+export const QuizRecapTitle = styled(motion.h2)`
+    cursor: pointer;
+`
 
 export const QuizRecapContainer = styled(motion.div)`
     text-align: center;

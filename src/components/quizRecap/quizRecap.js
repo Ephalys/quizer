@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { QuizRecapTitle, StyledQuizRecap, QuizRecapContainer, QuizRecapScore, QuizRecapCongrats } from "./quizRecapStyles"
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { updateScore } from 'actions/score';
 
 const QuizRecap = props => {
+    const history = useHistory()
     const { category, questCount, goodAnswerCount } = props.data
     const [congrats, setCongrats] = useState()
     const dispatch = useDispatch();
+
+    const handleRedirectHome = () => {
+        history.push("/")
+    }
 
     useEffect(() => {
         let tempCongrats;
@@ -34,7 +40,7 @@ const QuizRecap = props => {
                 opacity: 1
             }
         }}>
-            <QuizRecapTitle>Quizer</QuizRecapTitle>
+            <QuizRecapTitle onClick={handleRedirectHome}>Quizer</QuizRecapTitle>
             <QuizRecapContainer>
                 <QuizRecapScore>{goodAnswerCount} / {questCount}</QuizRecapScore>
                 <QuizRecapCongrats>{congrats}</QuizRecapCongrats>
