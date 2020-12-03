@@ -2,7 +2,11 @@ import React from "react";
 import ThemeSelector from "components/themeSelector/themeSelector";
 import LanguageSelector from "components/languageSelector/languageSelector";
 import { useSelector } from "react-redux";
-import { HeaderStyled } from "./headerStyles";
+import {
+  HeaderStyled,
+  StyledTitle,
+  StyledContainerIcones,
+} from "./headerStyles";
 import ProfilSelector from "components/profilSelector/profilSelector";
 
 const Header = () => {
@@ -10,9 +14,12 @@ const Header = () => {
 
   return (
     <HeaderStyled>
-      {scoreTable.length > 0 && <ProfilSelector/>}
-      <ThemeSelector />
-      <LanguageSelector />
+      <StyledTitle>Quizer</StyledTitle>
+      {scoreTable.length > 0 && <ProfilSelector />}
+      <StyledContainerIcones>
+        <ThemeSelector />
+        <LanguageSelector />
+      </StyledContainerIcones>
     </HeaderStyled>
   );
 };
