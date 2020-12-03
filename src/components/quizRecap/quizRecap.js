@@ -35,23 +35,25 @@ const QuizRecap = (props) => {
     }, [goodAnswerCount])
 
     useEffect(() => {
-        let tempCongrats;
-        if (0 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 3) {
-            tempCongrats = "Unlucky !";
-        } else if (4 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 6) {
-            tempCongrats = "Keep goin' !";
-        } else if (7 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 9) {
-            tempCongrats = "Nice !";
-        } else if (goodAnswerCountRef.current && goodAnswerCountRef.current === 10) {
-            tempCongrats = "Incredible !";
+        if (!congrats) {
+            let tempCongrats;
+            if (0 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 3) {
+                tempCongrats = "Unlucky !";
+            } else if (4 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 6) {
+                tempCongrats = "Keep goin' !";
+            } else if (7 <= goodAnswerCountRef.current && goodAnswerCountRef.current <= 9) {
+                tempCongrats = "Nice !";
+            } else if (goodAnswerCountRef.current && goodAnswerCountRef.current === 10) {
+                tempCongrats = "Incredible !";
+            }
+            setCongrats(tempCongrats);
+            let ScoreRecap = {
+                goodAnswerCount: goodAnswerCountRef.current,
+                questCount: questCount,
+                category: category,
+            };
+            dispatch(updateScoreTable(ScoreRecap));
         }
-        setCongrats(tempCongrats);
-        let ScoreRecap = {
-            goodAnswerCount: goodAnswerCountRef.current,
-            questCount: questCount,
-            category: category,
-        };
-        dispatch(updateScoreTable(ScoreRecap));
     }, [goodAnswerCountRef.current]);
 
 
