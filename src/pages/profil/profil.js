@@ -4,6 +4,7 @@ import history from "config/history";
 import Category from "components/category/category";
 import { useDispatch } from "react-redux";
 import { selectCategory } from "actions/category";
+import {Container, HomeButton} from "./profilStyles"
 
 const Profil = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ const Profil = () => {
     console.log("Score: ", scoreTable, "fav: ", favoritesCategories);
   });
   return (
-    <div>
-      <button onClick={handleRedirectHome}> Home </button>
+    <Container>
+      <HomeButton onClick={handleRedirectHome}>{"< Home"}</HomeButton>
 
       {username}
 
@@ -43,7 +44,7 @@ const Profil = () => {
           </p>
         </div>
       ))}
-    </div>
+    </Container>
   );
 };
 
