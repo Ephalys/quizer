@@ -44,21 +44,30 @@ const CategoryReducer = (state = initialState, action) => {
           state.search.length !== 0 ? action.payload.categories : [],
       };
     case FAV_CATEGORIES:
-      let index = state.FavoritesCategories.findIndex(
-        (i) => i.id === action.payload.id
-      );
-      let newFav;
-      if (index === -1) newFav = [...state.FavoritesCategories, action.payload];
-      else {
-        newFav = state.FavoritesCategories.filter(
-          (e) => e.id !== action.payload.id
+      if (Array.isArray(action.payload)) {
+        let newFav = action.payload;
+        return {
+          ...state,
+          FavoritesCategories: newFav,
+        };
+      } else {
+        let index = state.FavoritesCategories.findIndex(
+          (i) => i.id === action.payload.id
         );
+        let newFav;
+        if (index === -1)
+          newFav = [...state.FavoritesCategories, action.payload];
+        else {
+          newFav = state.FavoritesCategories.filter(
+            (e) => e.id !== action.payload.id
+          );
+        }
+        localStorage.setItem("FavoritesCategories", JSON.stringify(newFav));
+        return {
+          ...state,
+          FavoritesCategories: newFav,
+        };
       }
-      localStorage.setItem("FavoritesCategories", JSON.stringify(newFav));
-      return {
-        ...state,
-        FavoritesCategories: newFav,
-      };
     default:
       return state;
   }
