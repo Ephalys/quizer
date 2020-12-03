@@ -11,23 +11,12 @@ const Routes = () => {
   const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
-      {/* <Switch location={location} key={location.pathname}> */}
-      <Switch>
-        <Route path="/login" exact>
-          <Entry />
-        </Route>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route exact path="/quiz/:categoryId">
-          <Quiz />
-        </Route>
-        <Route exact path="/profil">
-          <Profil />
-        </Route>
-        <Route path="*">
-          <Nomatch />
-        </Route>
+      <Switch location={location} key={location.pathname}>
+        <Route path="/login" exact component={Entry}/>
+        <Route path="/" exact component={Home}/>
+        <Route exact path="/quiz/:categoryId" component={Quiz}/>
+        <Route exact path="/profil" component={Profil}/>
+        <Route path="*" component={Nomatch}/>
       </Switch>
     </AnimatePresence >
   );
