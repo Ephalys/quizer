@@ -3,7 +3,7 @@ import { CategoryStyled } from "./categoryStyles";
 
 const Category = (props) => {
   return (
-    <CategoryStyled onClick={props.onClick}>
+    <CategoryStyled onClick={props.onClick} exit="hidden">
       {props.category.name}
     </CategoryStyled>
   );

@@ -11,7 +11,7 @@ const Header = () => {
     let scoreTable = useSelector((state) => state.score.scoreTable);
 
     return (
-        <HeaderStyled>
+        <HeaderStyled exit="hidden">
             {scoreTable.length > 0 && <ProfilSelector />}
             <ThemeSelector />
             <LanguageSelector />

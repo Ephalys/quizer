@@ -70,7 +70,7 @@ export const Quiz = () => {
   };
 
   return (
-    <StyledQuiz>
+    <StyledQuiz exit="hidden">
       {!currentQuestion && !isQuizFinished && <Loader />}
       {currentQuestion && !isQuizFinished && category.category && (
         <>
