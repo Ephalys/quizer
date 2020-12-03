@@ -2,10 +2,10 @@ import styled from "styled-components";
 import breakpoints from "assets/styles/breakpoints";
 
 export const HeaderStyled = styled.div`
+  display: flex;
   position: fixed;
   top: 16px;
   right: 16px;
-  display: flex;
 
   @media (min-width: ${breakpoints.$screenMinXs}) {
     top: 24px;

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import history from "config/history";
 import Category from "components/category/category";
-import { useDispatch } from "react-redux";
+import { Container, HomeButton } from "./profilStyles";
 
 const Profil = () => {
-  const dispatch = useDispatch();
   let username = useSelector((state) => state.username.username);
   let scoreTable = useSelector((state) => state.score.scoreTable);
   let favoritesCategories = useSelector(
@@ -17,8 +16,8 @@ const Profil = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleRedirectHome}> Home </button>
+    <Container>
+      <HomeButton onClick={handleRedirectHome}>{"< Home"}</HomeButton>
 
       {username}
 
@@ -33,7 +32,7 @@ const Profil = () => {
           </p>
         </div>
       ))}
-    </div>
+    </Container>
   );
 };
 
