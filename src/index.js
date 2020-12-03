@@ -12,7 +12,7 @@ import { Router } from "react-router-dom";
 import history from "config/history";
 import Header from "./components/header/header";
 import firebase from "./firebase";
-import { isAndroid } from "react-device-detect";
+import { isIOS } from "react-device-detect";
 
 const GlobalStyle = createGlobalStyle`
 * {
