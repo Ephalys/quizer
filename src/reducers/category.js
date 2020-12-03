@@ -54,6 +54,7 @@ const CategoryReducer = (state = initialState, action) => {
           (e) => e.id !== action.payload.id
         );
       }
+      localStorage.setItem("FavoritesCategories", JSON.stringify(newFav));
       return {
         ...state,
         FavoritesCategories: newFav,
