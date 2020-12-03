@@ -2,38 +2,44 @@ import React from "react";
 import { useSelector } from "react-redux";
 import history from "config/history";
 import Category from "components/category/category";
-import { Container, HomeButton } from "./profilStyles";
+import { Container, HomeButton, CategoryWrapper, Subtitle, ScoreContainer, ScoreCategory, Score } from "./profilStyles";
 
 const Profil = () => {
-  let username = useSelector((state) => state.username.username);
-  let scoreTable = useSelector((state) => state.score.scoreTable);
-  let favoritesCategories = useSelector(
-    (state) => state.category.FavoritesCategories
-  );
+    let username = useSelector((state) => state.username.username);
+    let scoreTable = useSelector((state) => state.score.scoreTable);
+    let favoritesCategories = useSelector(
+        (state) => state.category.FavoritesCategories
+    );
 
-  const handleRedirectHome = () => {
-    history.push("/");
-  };
+    const handleRedirectHome = () => {
+        history.push("/");
+    };
 
-  return (
-    <Container>
-      <HomeButton onClick={handleRedirectHome}>{"< Home"}</HomeButton>
+    return (
+        <Container>
+            <HomeButton onClick={handleRedirectHome}>{"< Home"}</HomeButton>
 
-      {username}
+            <h1>Hello, {username} !</h1>
 
-      {favoritesCategories.map((c) => (
-        <Category category={c} key={c.id} />
-      ))}
-      {scoreTable.map((s, index) => (
-        <div key={index}>
-          <p>{s.category}</p>
-          <p>
-            {s.goodAnswerCount} / {s.questCount}
-          </p>
-        </div>
-      ))}
-    </Container>
-  );
+            <Subtitle>
+                Favorites categories
+            </Subtitle>
+            <CategoryWrapper>
+                {favoritesCategories.map((c) => (
+                    <Category category={c} key={c.id} />
+                ))}
+            </CategoryWrapper>
+            <Subtitle>
+                Last Scores
+            </Subtitle>
+            {scoreTable.map((s, index) => (
+                <ScoreContainer key={index}>
+                    <Score>{s.goodAnswerCount} / {s.questCount}</Score>
+                    <ScoreCategory>{s.category}</ScoreCategory>
+                </ScoreContainer>
+            ))}
+        </Container>
+    );
 };
 
 export default Profil;
