@@ -12,7 +12,7 @@ import { Router } from "react-router-dom";
 import history from "config/history";
 import Header from "./components/header/header";
 import firebase from "./firebase";
-import { isIOS } from "react-device-detect";
+import { isAndroid } from "react-device-detect";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -80,8 +80,10 @@ h3 {
 
 const App = () => {
   useEffect(() => {
-    const msg = firebase.messaging();
-    msg.requestPermission();
+    if (isAndroid) {
+      const msg = firebase.messaging();
+      msg.requestPermission();
+    }
   });
 
   const theme = useSelector((state) => state.theme.themeValue);
