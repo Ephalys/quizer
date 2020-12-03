@@ -8,7 +8,6 @@ const initialState = {
 const Score = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_SCORE:
-      console.log(action.payload);
       return {
         ...state,
         scoreValue: action.payload,
