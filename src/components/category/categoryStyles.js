@@ -15,6 +15,7 @@ export const CategoryStyled = styled.div`
   flex-basis: 100%;
   padding: 8px 16px;
   text-align: center;
+  cursor: pointer;
   @media (min-width: ${breakpoints.$screenMinXs}) {
     flex-basis: calc(50% - 32px);
     margin: 0 12px 16px;

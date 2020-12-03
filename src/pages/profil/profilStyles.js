@@ -1,17 +1,37 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import breakpoints from "assets/styles/breakpoints";
 
-export const Container = styled(motion.div)`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   width: 100%;
+
+  @media (min-width: ${breakpoints.$screenMinXs}) {
+    padding: 0 32px;
+  }
 `
 
+export const CategoryWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+  > div:first-child {
+    margin-left: 0;
+  }
 
-export const HomeButton = styled(motion.button)`
+  > div:last-child {
+    margin-right: 0;
+  }
+`
+
+export const Subtitle = styled.h2`
+  margin: 16px 0;
+  font-size: 20px;
+`
+
+export const HomeButton = styled.button`
   position: fixed;
   top: 16px;
   left: 16px;
@@ -33,3 +53,17 @@ export const HomeButton = styled(motion.button)`
   }
 `
 
+export const ScoreContainer = styled.div`
+  display: flex;
+  margin-bottom: 24px;
+`
+
+export const ScoreCategory = styled.span`
+    margin: 0;
+`
+
+export const Score = styled.span`
+  color: black;
+  font-weight: bold;
+  margin-right: 16px;
+`
