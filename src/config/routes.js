@@ -6,19 +6,24 @@ import Entry from "pages/entry/entry";
 import Quiz from "pages/quiz/quiz";
 import { AnimatePresence } from "framer-motion";
 import Profil from "pages/profil/profil";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Routes = () => {
   const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
-      <Switch location={location} key={location.pathname}>
-        <Route path="/login" exact component={Entry}/>
-        <Route path="/" exact component={Home}/>
-        <Route exact path="/quiz/:categoryId" component={Quiz}/>
-        <Route exact path="/profil" component={Profil}/>
-        <Route path="*" component={Nomatch}/>
+      <Switch>
+        <Route path="/login" exact component={Entry} />
+        <ProtectedRoute path="/" exact={true} component={Home} />
+        <ProtectedRoute
+          path="/quiz/:categoryId"
+          exact={true}
+          component={Quiz}
+        />
+        <ProtectedRoute path="/profil" exact={true} component={Profil} />
+        <Route path="*" component={Nomatch} />
       </Switch>
-    </AnimatePresence >
+    </AnimatePresence>
   );
 };
 

@@ -39,17 +39,6 @@ const Home = () => {
     history.push("/login");
   }
 
-  // if (
-  //   localStorage.getItem("scoreTable") &&
-  //   localStorage.getItem("scoreTable").length > 0
-  // ) {
-  //   let ScoreTable = JSON.parse(localStorage.getItem("scoreTable"));
-
-  //   ScoreTable.forEach((element) => {
-  //     dispatch(updateScoreTable(element));
-  //   });
-  // }
-
   const category = useSelector((state) => state.category);
   const categories = [
     { name: "General Knowledge", id: 9 },
