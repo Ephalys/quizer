@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 32px
+  padding: 0 32px;
 `
 
 export const BigTitle = styled.h1`
