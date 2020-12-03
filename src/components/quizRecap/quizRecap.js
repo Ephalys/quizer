@@ -4,7 +4,8 @@ import {
     StyledQuizRecap,
     QuizRecapContainer,
     QuizRecapScore,
-    QuizRecapCongrats,
+    FavButton,
+    FavoriteContainer
 } from "./quizRecapStyles";
 import { useDispatch } from "react-redux";
 import { updateScoreTable } from "actions/score";
@@ -74,13 +75,18 @@ const QuizRecap = (props) => {
         >
             <QuizRecapTitle onClick={handleRedirectHome}>Quizer</QuizRecapTitle>
             <QuizRecapContainer>
-                <button onClick={() => dispatch(favoriteCategories(categoryObject))}>
-                    {index === -1 ? <img src={FavoriteBorder} /> : <img src={Favorite} />}
-                </button>
                 <QuizRecapScore>
                     {goodAnswerCountRef.current} / {questCount}
                 </QuizRecapScore>
-                <QuizRecapCongrats>{congrats}</QuizRecapCongrats>
+                <h2>{congrats}</h2>
+                <FavoriteContainer>
+                    <p>
+                        If you like this category, you can save it for further games.
+                    </p>
+                    <FavButton onClick={() => dispatch(favoriteCategories(categoryObject))}>
+                        {index === -1 ? <img src={FavoriteBorder} /> : <img src={Favorite} />}
+                    </FavButton>
+                </FavoriteContainer>
             </QuizRecapContainer>
         </StyledQuizRecap>
     );

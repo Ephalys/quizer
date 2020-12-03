@@ -23,4 +23,21 @@ export const QuizRecapScore = styled(motion.h1)`
   margin-bottom: 0px;
 `;
 
-export const QuizRecapCongrats = styled(motion.h2)``;
+export const FavoriteContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+`;
+
+export const FavButton = styled(motion.button)`
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .3s;
+  
+  &:hover {
+    transform: scale(1.1);
+    transition: transform .3s;
+  }
+  
+`;
