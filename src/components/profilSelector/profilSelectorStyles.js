@@ -8,4 +8,5 @@ export const User = styled(UserSvg)`
   &:hover {
     fill: #ccc;
     transition: fill .3s;
+  }
 `

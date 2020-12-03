@@ -8,4 +8,5 @@ export const Drop = styled(DropSvg)`
   &:hover {
     fill: #ccc;
     transition: fill .3s;
+  }
 `

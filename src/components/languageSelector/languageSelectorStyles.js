@@ -8,4 +8,5 @@ export const Language = styled(LanguageSvg)`
   &:hover {
     fill: #ccc;
     transition: fill .3s;
+  }
 `;
