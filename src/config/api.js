@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function getQuestionsByParams({
-  count = 1,
+  count = 10,
   categoryId = null,
   difficulty = null,
   type = null,
