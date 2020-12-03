@@ -3,25 +3,20 @@ import ThemeSelector from "components/themeSelector/themeSelector";
 import LanguageSelector from "components/languageSelector/languageSelector";
 import { useSelector } from "react-redux";
 import {
-  HeaderStyled,
-  StyledTitle,
-  StyledContainerIcones,
+    HeaderStyled,
 } from "./headerStyles";
 import ProfilSelector from "components/profilSelector/profilSelector";
 
 const Header = () => {
-  let scoreTable = useSelector((state) => state.score.scoreTable);
+    let scoreTable = useSelector((state) => state.score.scoreTable);
 
-  return (
-    <HeaderStyled>
-      <StyledTitle>Quizer</StyledTitle>
-      {scoreTable.length > 0 && <ProfilSelector />}
-      <StyledContainerIcones>
-        <ThemeSelector />
-        <LanguageSelector />
-      </StyledContainerIcones>
-    </HeaderStyled>
-  );
+    return (
+        <HeaderStyled>
+            {scoreTable.length > 0 && <ProfilSelector />}
+            <ThemeSelector />
+            <LanguageSelector />
+        </HeaderStyled>
+    );
 };
 
 export default Header;

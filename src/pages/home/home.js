@@ -89,9 +89,6 @@ const Home = () => {
     });
   };
 
-  console.log(offset);
-  console.log(category.listCategory);
-
   return (
     <>
       {isLoading ? (
