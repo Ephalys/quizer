@@ -82,7 +82,9 @@ const App = () => {
   useEffect(() => {
     if (isAndroid) {
       const msg = firebase.messaging();
-      msg.requestPermission();
+      msg.requestPermission().then(() => {
+        return msg.getToken();
+      });
     }
   });
 
