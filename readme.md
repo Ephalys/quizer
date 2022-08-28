@@ -24,10 +24,6 @@ or
 yarn install
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [ReactJS](https://fr.reactjs.org/) - The web framework used
@@ -35,10 +31,6 @@ Add additional notes about how to deploy this on a live system
 * [Framer motion](https://www.framer.com/motion/) - Used to create beautiful animations
 * [Material Icons](https://material.io/resources/icons) - Icons
 * [Figma](https://figma.com) - Design tool
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
